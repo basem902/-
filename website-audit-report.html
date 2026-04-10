@@ -99,7 +99,150 @@ a { color: inherit; text-decoration: none; }
   color: var(--accent-2);
   background: rgba(201,162,75,0.14);
 }
-.nav-toggle { display: none; background:none; border:none; color:#fff; font-size:1.5rem; cursor:pointer; }
+.nav-toggle {
+  display: none;
+  background: rgba(201,162,75,0.14);
+  border: 1px solid rgba(201,162,75,0.35);
+  color: var(--accent-2);
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  cursor: pointer;
+  align-items: center; justify-content: center;
+  transition: all .3s;
+  padding: 0;
+}
+.nav-toggle:hover, .nav-toggle:focus { background: rgba(201,162,75,0.25); outline: none; }
+.nav-toggle .burger {
+  display: block;
+  width: 22px; height: 2px;
+  background: var(--accent-2);
+  border-radius: 2px;
+  position: relative;
+  transition: all .3s;
+}
+.nav-toggle .burger::before,
+.nav-toggle .burger::after {
+  content:''; position: absolute; left:0;
+  width: 22px; height: 2px;
+  background: var(--accent-2);
+  border-radius: 2px;
+  transition: all .3s;
+}
+.nav-toggle .burger::before { top: -7px; }
+.nav-toggle .burger::after { top: 7px; }
+.nav-toggle.open .burger { background: transparent; }
+.nav-toggle.open .burger::before { top: 0; transform: rotate(45deg); }
+.nav-toggle.open .burger::after { top: 0; transform: rotate(-45deg); }
+
+/* Mobile overlay + drawer */
+.mobile-overlay {
+  position: fixed; inset: 0;
+  background: rgba(11,45,42,0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s;
+}
+.mobile-overlay.open { opacity: 1; pointer-events: auto; }
+
+.mobile-drawer {
+  position: fixed;
+  top: 0; right: 0;
+  width: 86%; max-width: 340px;
+  height: 100vh;
+  background: linear-gradient(180deg, #0B2D2A 0%, #0F3E3A 100%);
+  border-left: 1px solid rgba(201,162,75,0.25);
+  z-index: 1001;
+  transform: translateX(105%);
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
+  padding: 90px 1.4rem 2rem;
+  overflow-y: auto;
+  box-shadow: -20px 0 60px rgba(0,0,0,0.5);
+}
+.mobile-drawer.open { transform: translateX(0); }
+.mobile-drawer::before {
+  content:''; position: absolute;
+  top:0; left:0; right:0; height: 4px;
+  background: var(--grad-gold);
+}
+.mobile-drawer-label {
+  position: absolute;
+  top: 1.6rem; right: 1.5rem;
+  color: var(--accent-2);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.mobile-drawer ul {
+  list-style: none;
+  display: flex; flex-direction: column;
+  gap: .45rem;
+}
+.mobile-drawer a {
+  display: flex; align-items: center; gap: 12px;
+  padding: 13px 14px;
+  border-radius: 11px;
+  color: rgba(255,255,255,0.82);
+  font-weight: 700;
+  font-size: .92rem;
+  transition: all .3s;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+.mobile-drawer a:hover,
+.mobile-drawer a.active {
+  background: rgba(201,162,75,0.12);
+  border-color: rgba(201,162,75,0.3);
+  color: var(--accent-2);
+  transform: translateX(-4px);
+}
+.mobile-drawer a .mnum {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: rgba(201,162,75,0.15);
+  color: var(--accent-2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .75rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+.mobile-drawer-foot {
+  margin-top: 1.8rem;
+  padding-top: 1.4rem;
+  border-top: 1px dashed rgba(201,162,75,0.2);
+  text-align: center;
+}
+.mobile-drawer-foot p {
+  color: rgba(255,255,255,0.5);
+  font-size: .72rem;
+  line-height: 1.8;
+  margin: 0;
+}
+.mobile-drawer-foot strong { color: var(--accent-2); }
+body.nav-open { overflow: hidden; }
+
+/* Floating mobile CTA */
+.mobile-cta {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--grad-gold);
+  color: var(--primary);
+  padding: 12px 22px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: .85rem;
+  box-shadow: 0 12px 30px rgba(201,162,75,0.45);
+  z-index: 997;
+  text-decoration: none;
+  align-items: center;
+  gap: 8px;
+}
 
 /* ===== HERO ===== */
 .hero {
@@ -957,24 +1100,93 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 960px) {
+@media (max-width: 1100px) {
   .nav-links { display: none; }
-  .hero-stats { grid-template-columns: repeat(2, 1fr); }
-  .exec-grid { grid-template-columns: 1fr; }
-  .issue { grid-template-columns: 40px 1fr; }
-  .issue-sev { grid-column: 2; justify-self: flex-start; }
-  .phase { padding-right: 80px; }
-  .phase-marker { right: 12px; }
-  .roadmap::before { right: 34px; }
-  .section { padding: 70px 1.2rem; }
-  .exec-wrap { padding: 2rem 1.3rem; }
+  .nav-toggle { display: inline-flex; }
+  .mobile-cta { display: inline-flex; }
+}
+@media (max-width: 960px) {
+  body { font-size: 14.5px; }
+  .nav-inner { padding: 0 1.2rem; height: 66px; }
+  .nav-logo-mark { width: 38px; height: 38px; font-size: 1rem; }
+  .nav-logo { font-size: .92rem; gap: 9px; }
+  .hero { padding: 120px 1.2rem 80px; min-height: auto; }
+  .hero-badge { font-size: .75rem; padding: 8px 16px; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); gap: .8rem; max-width: 100%; }
+  .hero-stat { padding: 1.1rem .7rem; }
+  .hero-stat-num { font-size: 2rem; }
+  .hero-stat-label { font-size: .72rem; }
+  .exec-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .exec-text h3 { font-size: 1.4rem; }
+  .exec-text p { font-size: .92rem; line-height: 1.9; }
+  .issue { grid-template-columns: 38px 1fr; padding: 1.1rem 1rem; gap: .8rem; }
+  .issue-sev { grid-column: 2; justify-self: flex-start; margin-top: .3rem; }
+  .issue-num { width: 36px; height: 36px; font-size: .85rem; }
+  .issue-body h4 { font-size: .92rem; }
+  .issue-body p { font-size: .82rem; }
+  .issue-fix { font-size: .78rem; padding: .55rem .8rem; }
+  .cat-head { grid-template-columns: auto 1fr; padding: 1.2rem 1.2rem; gap: 1rem; }
+  .cat-head-icon { width: 52px; height: 52px; font-size: 1.4rem; }
+  .cat-head-text h3 { font-size: 1.1rem; }
+  .cat-head-text p { font-size: .78rem; }
+  .cat-head-count { grid-column: 1 / -1; text-align: center; font-size: .78rem; }
+  .phase { padding-right: 70px; margin-bottom: 2rem; }
+  .phase-marker { right: 10px; width: 42px; height: 42px; }
+  .roadmap::before { right: 30px; }
+  .phase-card { padding: 1.4rem 1.2rem; }
+  .phase-title { font-size: 1.05rem; }
+  .phase-items li { font-size: .83rem; padding: .5rem .7rem; }
+  .section { padding: 60px 1.2rem; }
+  .section-title { font-size: 1.6rem; }
+  .section-sub { font-size: .92rem; }
+  .exec-wrap { padding: 1.8rem 1.2rem; }
+  .exec-score-num { font-size: 4.2rem; }
+  .overview-grid { grid-template-columns: repeat(2, 1fr); gap: .9rem; }
+  .overview-card { padding: 1.6rem .9rem; }
+  .overview-num { font-size: 2rem; }
+  .overview-card h3 { font-size: .88rem; }
+  .overview-card p { font-size: .75rem; }
+  .agents-grid, .ai-grid, .qw-grid, .kw-grid, .kpi-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .ai-card { padding: 1.6rem 1.3rem; }
+  .ai-card h4 { font-size: .98rem; }
+  .cta { padding: 2.5rem 1.3rem; border-radius: 20px; }
+  .cta h2 { font-size: 1.7rem; }
+  .cta p { font-size: .95rem; }
+  .btn { padding: 14px 24px; font-size: .88rem; width: 100%; justify-content: center; }
+  .cta-btns { flex-direction: column; }
+  .cat-tabs { gap: .4rem; }
+  .cat-tab { padding: 8px 16px; font-size: .78rem; }
+  .kpi-card { padding: 1.5rem 1rem; }
+  .kpi-num { font-size: 2.1rem; }
+  .kpi-label { font-size: .7rem; }
+  .kpi-desc { font-size: .78rem; }
+  .compare-table { min-width: 780px; }
+  .compare-table th, .compare-table td { padding: .7rem .6rem; font-size: .75rem; }
 }
 @media (max-width: 560px) {
-  .hero-stats { grid-template-columns: 1fr 1fr; }
-  .hero-client { flex-direction: column; gap: 8px; }
+  body { font-size: 14px; }
+  .hero { padding: 100px 1rem 70px; }
+  .hero h1 { font-size: 1.75rem; line-height: 1.35; }
+  .hero-sub { font-size: .9rem; line-height: 1.85; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); gap: .6rem; }
+  .hero-stat-num { font-size: 1.7rem; }
+  .hero-client { flex-direction: column; gap: 6px; padding: 12px 18px; text-align: center; }
   .hero-client-url { border-right: none; padding-right: 0; }
-  .overview-num { font-size: 2rem; }
-  .exec-score-num { font-size: 4rem; }
+  .overview-grid { grid-template-columns: 1fr 1fr; }
+  .overview-num { font-size: 1.8rem; }
+  .exec-score-num { font-size: 3.6rem; }
+  .section { padding: 50px 1rem; }
+  .section-title { font-size: 1.4rem; }
+  .phase { padding-right: 60px; }
+  .phase-marker { right: 8px; width: 38px; height: 38px; font-size: .85rem; }
+  .roadmap::before { right: 26px; width: 3px; }
+  .issue { padding: 1rem .85rem; }
+  .cat-head { padding: 1rem .9rem; }
+  .cat-head-icon { width: 46px; height: 46px; font-size: 1.2rem; }
+  .cat-head-text h3 { font-size: 1rem; }
+  .cta h2 { font-size: 1.45rem; }
+  .kw-card { padding: 1.4rem 1.2rem; }
+  .kw-list li { font-size: .8rem; padding: 6px 9px; }
 }
 
 /* ===== PRINT ===== */
@@ -1002,12 +1214,41 @@ a { color: inherit; text-decoration: none; }
       <li><a href="#ux">التجربة</a></li>
       <li><a href="#sec">الأمان</a></li>
       <li><a href="#mkt">التسويق</a></li>
+      <li><a href="#ai">الذكاء الاصطناعي</a></li>
       <li><a href="#compete">المنافسون</a></li>
       <li><a href="#roadmap">خطة التطوير</a></li>
       <li><a href="#kpi">مؤشرات النجاح</a></li>
     </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false">
+      <span class="burger"></span>
+    </button>
   </div>
 </nav>
+
+<!-- Mobile Drawer -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+  <div class="mobile-drawer-label">✦ قائمة التقرير</div>
+  <ul>
+    <li><a href="#exec"><span class="mnum">01</span> الملخص التنفيذي</a></li>
+    <li><a href="#agents"><span class="mnum">02</span> المنهجية</a></li>
+    <li><a href="#overview"><span class="mnum">03</span> العيوب الإجمالية</a></li>
+    <li><a href="#tech"><span class="mnum">04</span> التقني و SEO</a></li>
+    <li><a href="#ux"><span class="mnum">05</span> تجربة المستخدم</a></li>
+    <li><a href="#sec"><span class="mnum">06</span> الأمان والامتثال</a></li>
+    <li><a href="#mkt"><span class="mnum">07</span> التسويق والنمو</a></li>
+    <li><a href="#ai"><span class="mnum">08</span> الذكاء الاصطناعي</a></li>
+    <li><a href="#compete"><span class="mnum">09</span> المقارنة التنافسية</a></li>
+    <li><a href="#roadmap"><span class="mnum">10</span> خطة التطوير</a></li>
+    <li><a href="#kpi"><span class="mnum">11</span> مؤشرات النجاح</a></li>
+  </ul>
+  <div class="mobile-drawer-foot">
+    <p>تقرير تدقيق شامل<br><strong>شركة روابط العقارية</strong><br>rsre.sa</p>
+  </div>
+</aside>
+
+<!-- Floating top CTA on mobile -->
+<a href="#roadmap" class="mobile-cta">🚀 عرض خطة التطوير</a>
 
 <!-- ====== HERO ====== -->
 <section class="hero">
@@ -3358,18 +3599,51 @@ window.addEventListener('scroll', () => {
   else nav.classList.remove('scrolled');
 });
 
-// Active nav link
-const links = document.querySelectorAll('.nav-links a');
-const sections = ['exec','agents','overview','tech','ux','sec','mkt','compete','roadmap','kpi','budget'];
+// Active nav link highlighting
+const allNavLinks = document.querySelectorAll('.nav-links a, .mobile-drawer a');
+const sections = ['exec','agents','overview','tech','ux','sec','mkt','ai','compete','roadmap','kpi'];
 window.addEventListener('scroll', () => {
   let current = '';
   sections.forEach(id => {
     const el = document.getElementById(id);
     if (el && el.getBoundingClientRect().top < 150) current = id;
   });
-  links.forEach(l => {
+  allNavLinks.forEach(l => {
     l.classList.toggle('active', l.getAttribute('href') === '#' + current);
   });
+});
+
+// Mobile drawer toggle
+const navToggle = document.getElementById('navToggle');
+const mobileDrawer = document.getElementById('mobileDrawer');
+const mobileOverlay = document.getElementById('mobileOverlay');
+
+function openDrawer() {
+  navToggle.classList.add('open');
+  mobileDrawer.classList.add('open');
+  mobileOverlay.classList.add('open');
+  document.body.classList.add('nav-open');
+  navToggle.setAttribute('aria-expanded', 'true');
+  mobileDrawer.setAttribute('aria-hidden', 'false');
+}
+function closeDrawer() {
+  navToggle.classList.remove('open');
+  mobileDrawer.classList.remove('open');
+  mobileOverlay.classList.remove('open');
+  document.body.classList.remove('nav-open');
+  navToggle.setAttribute('aria-expanded', 'false');
+  mobileDrawer.setAttribute('aria-hidden', 'true');
+}
+navToggle.addEventListener('click', () => {
+  if (mobileDrawer.classList.contains('open')) closeDrawer();
+  else openDrawer();
+});
+mobileOverlay.addEventListener('click', closeDrawer);
+document.querySelectorAll('.mobile-drawer a').forEach(a => {
+  a.addEventListener('click', closeDrawer);
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) closeDrawer();
 });
 </script>
 </body>
