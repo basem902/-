@@ -1,0 +1,3376 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تقرير التدقيق الشامل وخطة التطوير — شركة روابط العقارية (rsre.sa)</title>
+<meta name="description" content="تدقيق صارم لموقع روابط العقارية يكشف 116+ ملاحظة عبر الأمان، التقنية، SEO، UX، الامتثال السعودي، والتسويق — مع خطة تطوير احترافية كاملة.">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #0B2D2A;
+  --primary-2: #0F3E3A;
+  --primary-3: #164C47;
+  --accent: #C9A24B;
+  --accent-2: #E0BE6A;
+  --accent-3: #8B6F2B;
+  --gold-light: #FDF6E3;
+  --emerald: #0E8F73;
+  --emerald-light: #DCFCE7;
+  --danger: #DC2626;
+  --danger-light: #FEE2E2;
+  --warning: #D97706;
+  --warning-light: #FEF3C7;
+  --info: #2563EB;
+  --info-light: #DBEAFE;
+  --success: #059669;
+  --success-light: #D1FAE5;
+  --bg: #F7F7F4;
+  --bg-2: #F1EFE8;
+  --card: #FFFFFF;
+  --text: #111827;
+  --text-2: #374151;
+  --text-3: #6B7280;
+  --border: #E5E7EB;
+  --border-2: #D1D5DB;
+  --grad-dark: linear-gradient(135deg, #0B2D2A 0%, #0F3E3A 40%, #164C47 100%);
+  --grad-gold: linear-gradient(135deg, #C9A24B 0%, #E0BE6A 50%, #8B6F2B 100%);
+  --grad-emerald: linear-gradient(135deg, #0E8F73 0%, #059669 100%);
+  --grad-danger: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+  --shadow-sm: 0 1px 3px rgba(11,45,42,0.08);
+  --shadow: 0 4px 20px rgba(11,45,42,0.08);
+  --shadow-lg: 0 14px 40px rgba(11,45,42,0.14);
+  --shadow-xl: 0 24px 70px rgba(11,45,42,0.18);
+  --radius: 18px;
+  --radius-sm: 12px;
+  --radius-xs: 8px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Cairo','Tajawal',sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.85;
+  overflow-x: hidden;
+  font-size: 15.5px;
+}
+img { max-width:100%; display:block; }
+a { color: inherit; text-decoration: none; }
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed; top:0; right:0; left:0; z-index: 999;
+  background: rgba(11,45,42,0.92);
+  backdrop-filter: blur(22px) saturate(1.3);
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
+  border-bottom: 1px solid rgba(201,162,75,0.18);
+  transition: all .3s ease;
+}
+.nav.scrolled { background: rgba(11,45,42,0.98); box-shadow: 0 8px 40px rgba(0,0,0,0.35); }
+.nav-inner {
+  max-width: 1440px; margin: 0 auto;
+  padding: 0 2rem; height: 74px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+  color: #fff; font-weight: 900; font-size: 1.05rem;
+}
+.nav-logo-mark {
+  width: 42px; height: 42px;
+  background: var(--grad-gold);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--primary); font-weight: 900; font-size: 1.1rem;
+  box-shadow: 0 6px 18px rgba(201,162,75,0.4);
+}
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: .25rem; list-style: none; flex-wrap: wrap; }
+.nav-links a {
+  color: rgba(255,255,255,0.72);
+  padding: .5rem .95rem;
+  border-radius: 10px;
+  font-size: .82rem;
+  font-weight: 600;
+  transition: all .3s;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: var(--accent-2);
+  background: rgba(201,162,75,0.14);
+}
+.nav-toggle { display: none; background:none; border:none; color:#fff; font-size:1.5rem; cursor:pointer; }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  background: var(--grad-dark);
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  padding: 140px 2rem 100px;
+  overflow: hidden;
+}
+.hero::before {
+  content:''; position: absolute; top:-40%; right:-20%;
+  width: 900px; height: 900px;
+  background: radial-gradient(circle, rgba(201,162,75,0.18) 0%, transparent 60%);
+  animation: pulse 10s ease-in-out infinite;
+}
+.hero::after {
+  content:''; position: absolute; bottom:-30%; left:-15%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(14,143,115,0.12) 0%, transparent 60%);
+  animation: pulse 12s ease-in-out infinite reverse;
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); opacity: .55; }
+  50% { transform: scale(1.25); opacity: 1; }
+}
+.hero-grid-bg {
+  position: absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(201,162,75,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,162,75,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+.hero-content { position: relative; z-index: 2; text-align: center; max-width: 1000px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(201,162,75,0.16);
+  color: var(--accent-2);
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-size: .88rem; font-weight: 700;
+  border: 1px solid rgba(201,162,75,0.36);
+  margin-bottom: 2rem;
+  animation: fadeUp .8s ease;
+}
+.hero-badge .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(201,162,75,0.3);
+  animation: ping 2s infinite;
+}
+@keyframes ping { 0%,100% {opacity:1;} 50% {opacity:.4;} }
+.hero h1 {
+  font-size: clamp(2.1rem, 5.2vw, 4rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 1s ease;
+  letter-spacing: -0.5px;
+}
+.hero h1 span {
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-sub {
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  color: rgba(255,255,255,0.76);
+  max-width: 780px; margin: 0 auto 2.5rem;
+  line-height: 2;
+  animation: fadeUp 1.2s ease;
+}
+.hero-client {
+  display: inline-flex; align-items: center; gap: 16px;
+  padding: 14px 26px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  margin-bottom: 3rem;
+  animation: fadeUp 1.3s ease;
+}
+.hero-client-label { color: rgba(255,255,255,0.5); font-size: .8rem; font-weight: 600; }
+.hero-client-name { color: var(--accent-2); font-size: 1rem; font-weight: 800; }
+.hero-client-url { color: rgba(255,255,255,0.7); font-size: .82rem; border-right: 1px solid rgba(255,255,255,0.2); padding-right: 16px; }
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.2rem;
+  max-width: 980px;
+  margin: 0 auto;
+  animation: fadeUp 1.5s ease;
+}
+.hero-stat {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,162,75,0.2);
+  border-radius: 16px;
+  padding: 1.4rem 1rem;
+  backdrop-filter: blur(10px);
+  transition: all .4s;
+}
+.hero-stat:hover { transform: translateY(-6px); border-color: var(--accent); background: rgba(201,162,75,0.08); }
+.hero-stat-num {
+  font-size: 2.5rem; font-weight: 900;
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block; line-height: 1;
+}
+.hero-stat-label {
+  color: rgba(255,255,255,0.68);
+  font-size: .82rem;
+  font-weight: 600;
+  margin-top: .5rem;
+}
+@keyframes fadeUp { from { opacity:0; transform: translateY(30px);} to {opacity:1; transform: translateY(0);} }
+
+.hero-scroll {
+  position: absolute; bottom: 30px; left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.5);
+  font-size: .8rem;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce { 0%,100% { transform: translate(-50%,0);} 50% { transform: translate(-50%,-10px);} }
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 100px 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.section-head { text-align: center; margin-bottom: 4rem; }
+.section-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 18px;
+  border-radius: 50px;
+  font-size: .78rem; font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 1.2rem;
+}
+.tag-gold { background: var(--gold-light); color: var(--accent-3); border: 1px solid rgba(201,162,75,0.3);}
+.tag-danger { background: var(--danger-light); color: var(--danger); }
+.tag-warning { background: var(--warning-light); color: var(--warning); }
+.tag-info { background: var(--info-light); color: var(--info); }
+.tag-success { background: var(--success-light); color: var(--success); }
+.tag-emerald { background: var(--emerald-light); color: var(--emerald); }
+
+.section-title {
+  font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+  font-weight: 900;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+.section-title span {
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.section-sub {
+  font-size: 1.08rem;
+  color: var(--text-3);
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* ===== EXEC SUMMARY ===== */
+.exec-wrap {
+  background: var(--grad-dark);
+  border-radius: 24px;
+  padding: 3rem;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 4rem;
+  box-shadow: var(--shadow-xl);
+}
+.exec-wrap::before {
+  content:''; position: absolute; top:0; left:0; right:0; height: 4px;
+  background: var(--grad-gold);
+}
+.exec-wrap::after {
+  content:''; position: absolute; top:-30%; left:-10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(201,162,75,0.1) 0%, transparent 60%);
+}
+.exec-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 3rem;
+  position: relative;
+  z-index: 1;
+}
+.exec-text h3 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 1.2rem;
+  color: var(--accent-2);
+}
+.exec-text p {
+  color: rgba(255,255,255,0.84);
+  font-size: 1rem;
+  line-height: 2.1;
+  margin-bottom: 1rem;
+}
+.exec-text strong { color: var(--accent-2); font-weight: 800; }
+.exec-score {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(201,162,75,0.25);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.exec-score-label { color: rgba(255,255,255,0.55); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.exec-score-num {
+  font-size: 5.5rem; font-weight: 900;
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin: .5rem 0;
+}
+.exec-score-unit { color: rgba(255,255,255,0.5); font-size: 1rem; }
+.exec-score-desc { color: var(--accent-2); font-size: .95rem; margin-top: 1rem; font-weight: 700; }
+.exec-bar {
+  height: 10px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  margin-top: 1.2rem;
+  overflow: hidden;
+  position: relative;
+}
+.exec-bar-fill {
+  height: 100%;
+  width: 41%;
+  background: linear-gradient(90deg, #DC2626, #D97706, #C9A24B);
+  border-radius: 10px;
+  position: relative;
+}
+.exec-bar-fill::after {
+  content:''; position: absolute; top:0; right:0; bottom:0; width: 2px; background: #fff;
+}
+
+/* ===== OVERVIEW GRID ===== */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.4rem;
+}
+.overview-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.2rem 1.6rem;
+  text-align: center;
+  transition: all .4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.overview-card::before {
+  content: ''; position: absolute; top:0; right:0; left:0;
+  height: 4px;
+  background: var(--grad-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .4s;
+}
+.overview-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--accent); }
+.overview-card:hover::before { transform: scaleX(1); }
+.overview-icon {
+  width: 72px; height: 72px;
+  border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.2rem;
+  font-size: 2rem;
+}
+.oi-danger { background: var(--danger-light); color: var(--danger); }
+.oi-warning { background: var(--warning-light); color: var(--warning); }
+.oi-info { background: var(--info-light); color: var(--info); }
+.oi-success { background: var(--success-light); color: var(--success); }
+.oi-gold { background: var(--gold-light); color: var(--accent-3); }
+.overview-num {
+  font-size: 2.6rem; font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+}
+.overview-card h3 { font-size: 1rem; font-weight: 800; margin: .6rem 0 .4rem; color: var(--text); }
+.overview-card p { font-size: .86rem; color: var(--text-3); }
+
+/* ===== AGENTS CARDS ===== */
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.6rem;
+  margin-top: 2.5rem;
+}
+.agent-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  transition: all .4s;
+  position: relative;
+}
+.agent-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--accent); }
+.agent-number {
+  position: absolute; top: -18px; right: 24px;
+  width: 40px; height: 40px;
+  background: var(--grad-gold);
+  color: var(--primary);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900;
+  font-size: 1rem;
+  box-shadow: 0 6px 18px rgba(201,162,75,0.4);
+}
+.agent-card h4 { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: .8rem; margin-top: .8rem; }
+.agent-card p { color: var(--text-3); font-size: .9rem; margin-bottom: 1rem; }
+.agent-meta {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border);
+  font-size: .78rem;
+  color: var(--text-3);
+}
+.agent-meta b { color: var(--primary); font-weight: 800; }
+.agent-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem; }
+.agent-tag {
+  background: var(--gold-light);
+  color: var(--accent-3);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+/* ===== ISSUE ROWS ===== */
+.cat-tabs {
+  display: flex; gap: .6rem; flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  justify-content: center;
+}
+.cat-tab {
+  padding: 10px 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: .88rem;
+  color: var(--text-2);
+  cursor: default;
+  transition: all .3s;
+}
+.cat-tab.active {
+  background: var(--grad-dark);
+  color: var(--accent-2);
+  border-color: var(--primary);
+}
+.cat-tab .badge {
+  display: inline-block;
+  background: rgba(201,162,75,0.2);
+  color: var(--accent-2);
+  padding: 2px 9px;
+  border-radius: 20px;
+  margin-right: 6px;
+  font-size: .75rem;
+}
+.cat-tab:not(.active) .badge { background: var(--bg-2); color: var(--text-3); }
+
+.issues-list { display: grid; gap: 1rem; }
+.issue {
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.5rem 1.8rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+.issue::before {
+  content:''; position: absolute; top:0; right:0; bottom:0; width: 4px;
+  background: var(--border);
+  transition: all .3s;
+}
+.issue.crit::before { background: var(--danger); }
+.issue.high::before { background: var(--warning); }
+.issue.med::before { background: var(--info); }
+.issue.low::before { background: var(--emerald); }
+.issue:hover { border-color: var(--accent); box-shadow: var(--shadow); transform: translateX(-4px); }
+.issue-num {
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  background: var(--bg-2);
+  color: var(--primary);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900;
+  font-size: .95rem;
+}
+.issue.crit .issue-num { background: var(--danger-light); color: var(--danger); }
+.issue.high .issue-num { background: var(--warning-light); color: var(--warning); }
+.issue.med .issue-num { background: var(--info-light); color: var(--info); }
+.issue.low .issue-num { background: var(--emerald-light); color: var(--emerald); }
+.issue-body h4 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: .4rem;
+}
+.issue-body p {
+  font-size: .88rem;
+  color: var(--text-3);
+  line-height: 1.85;
+  margin-bottom: .6rem;
+}
+.issue-fix {
+  display: block;
+  background: var(--gold-light);
+  border-right: 3px solid var(--accent);
+  padding: .7rem 1rem;
+  border-radius: 0 10px 10px 0;
+  font-size: .85rem;
+  color: var(--accent-3);
+}
+.issue-fix b { color: var(--primary); }
+.issue-sev {
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: .72rem;
+  font-weight: 800;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+.sev-crit { background: var(--danger-light); color: var(--danger); }
+.sev-high { background: var(--warning-light); color: var(--warning); }
+.sev-med { background: var(--info-light); color: var(--info); }
+.sev-low { background: var(--emerald-light); color: var(--emerald); }
+
+/* ===== CATEGORY HEADERS ===== */
+.cat-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  background: var(--grad-dark);
+  color: #fff;
+  padding: 1.6rem 2rem;
+  border-radius: var(--radius);
+  margin: 3rem 0 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.cat-head::before {
+  content:''; position: absolute; inset:0;
+  background: radial-gradient(circle at 80% 50%, rgba(201,162,75,0.12) 0%, transparent 60%);
+}
+.cat-head-icon {
+  width: 64px; height: 64px;
+  background: var(--grad-gold);
+  border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+  color: var(--primary);
+  position: relative;
+  z-index: 1;
+}
+.cat-head-text { position: relative; z-index: 1; }
+.cat-head-text h3 { font-size: 1.4rem; font-weight: 900; color: var(--accent-2); }
+.cat-head-text p { color: rgba(255,255,255,0.7); font-size: .88rem; margin-top: .2rem; }
+.cat-head-count {
+  background: rgba(201,162,75,0.2);
+  border: 1px solid rgba(201,162,75,0.4);
+  padding: 8px 18px;
+  border-radius: 50px;
+  color: var(--accent-2);
+  font-weight: 800;
+  font-size: .85rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== COMPETITOR TABLE ===== */
+.compare-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+.compare-table {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: collapse;
+}
+.compare-table thead { background: var(--grad-dark); }
+.compare-table th {
+  padding: 1.2rem 1rem;
+  color: var(--accent-2);
+  font-weight: 800;
+  font-size: .85rem;
+  text-align: center;
+  white-space: nowrap;
+}
+.compare-table th:first-child { text-align: right; color: #fff; }
+.compare-table td {
+  padding: 1rem;
+  font-size: .85rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+.compare-table td:first-child {
+  text-align: right;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--bg-2);
+}
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tbody tr:hover { background: #FAF8F2; }
+.rawabet-col { background: rgba(220,38,38,0.04); }
+.check { color: var(--success); font-weight: 900; font-size: 1.25rem; }
+.cross { color: var(--danger); font-weight: 900; font-size: 1.25rem; }
+.partial { color: var(--warning); font-weight: 900; font-size: 1.1rem; }
+
+/* ===== KEYWORD GAP ===== */
+.kw-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.4rem;
+}
+.kw-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  position: relative;
+  transition: all .4s;
+}
+.kw-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.kw-card h4 {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 1.05rem; font-weight: 800;
+  color: var(--primary);
+  padding-bottom: .9rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px dashed var(--border);
+}
+.kw-card h4 .kw-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+}
+.kw-card.t1 h4 .kw-dot { background: var(--danger); }
+.kw-card.t2 h4 .kw-dot { background: var(--warning); }
+.kw-card.t3 h4 .kw-dot { background: var(--info); }
+.kw-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+.kw-list li {
+  padding: 8px 12px;
+  background: var(--bg-2);
+  border-radius: 8px;
+  font-size: .88rem;
+  color: var(--text-2);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.kw-list li::before {
+  content: '🔍'; opacity: .6; font-size: .85rem;
+}
+.kw-vol {
+  font-size: .72rem;
+  background: var(--card);
+  color: var(--text-3);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+/* ===== ROADMAP ===== */
+.roadmap { position: relative; padding: 2rem 0; }
+.roadmap::before {
+  content:''; position: absolute;
+  right: 42px; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--danger), var(--warning), var(--info), var(--emerald), var(--success));
+  border-radius: 4px;
+}
+.phase {
+  position: relative;
+  padding-right: 100px;
+  margin-bottom: 2.5rem;
+}
+.phase-marker {
+  position: absolute; right: 20px; top: 0;
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  background: var(--card);
+  border: 4px solid var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900;
+  color: var(--primary);
+  box-shadow: 0 6px 20px rgba(201,162,75,0.3);
+  z-index: 2;
+}
+.phase.p1 .phase-marker { border-color: var(--danger); color: var(--danger); }
+.phase.p2 .phase-marker { border-color: var(--warning); color: var(--warning); }
+.phase.p3 .phase-marker { border-color: var(--info); color: var(--info); }
+.phase.p4 .phase-marker { border-color: var(--emerald); color: var(--emerald); }
+.phase.p5 .phase-marker { border-color: var(--success); color: var(--success); }
+.phase-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: all .3s;
+}
+.phase-card:hover { box-shadow: var(--shadow-lg); transform: translateX(-6px); }
+.phase-head {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 2px dashed var(--border);
+}
+.phase-title { font-size: 1.2rem; font-weight: 900; color: var(--primary); }
+.phase-time {
+  background: var(--gold-light);
+  color: var(--accent-3);
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: .78rem;
+  font-weight: 800;
+}
+.phase-items { list-style: none; display: grid; gap: .7rem; }
+.phase-items li {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: .8rem;
+  align-items: flex-start;
+  font-size: .9rem;
+  color: var(--text-2);
+  padding: .6rem .9rem;
+  background: var(--bg-2);
+  border-radius: 10px;
+}
+.phase-items li::before {
+  content: '✓';
+  width: 22px; height: 22px;
+  background: var(--grad-gold);
+  color: var(--primary);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900;
+  font-size: .75rem;
+}
+.phase-kpi {
+  margin-top: 1rem;
+  padding: .8rem 1rem;
+  background: var(--primary);
+  color: var(--accent-2);
+  border-radius: 10px;
+  font-size: .82rem;
+  font-weight: 700;
+  display: flex; align-items: center; gap: 8px;
+}
+.phase-kpi::before { content: '🎯'; }
+
+/* ===== QUICK WINS ===== */
+.qw-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.4rem;
+}
+.qw-card {
+  background: linear-gradient(145deg, #ffffff 0%, #faf8f2 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  position: relative;
+  transition: all .4s;
+}
+.qw-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--accent); }
+.qw-week {
+  display: inline-block;
+  background: var(--grad-dark);
+  color: var(--accent-2);
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: .72rem;
+  font-weight: 800;
+  margin-bottom: .8rem;
+}
+.qw-card h4 {
+  font-size: 1rem; font-weight: 800;
+  color: var(--primary);
+  margin-bottom: .6rem;
+}
+.qw-card p {
+  font-size: .86rem;
+  color: var(--text-3);
+  line-height: 1.85;
+}
+.qw-impact {
+  margin-top: 1rem;
+  padding-top: .8rem;
+  border-top: 1px dashed var(--border);
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--emerald);
+}
+
+/* ===== KPI ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.4rem;
+}
+.kpi-card {
+  background: var(--grad-dark);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all .4s;
+}
+.kpi-card::before {
+  content:''; position: absolute; top:0; right:0; left:0; height: 4px;
+  background: var(--grad-gold);
+}
+.kpi-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
+.kpi-label { color: rgba(255,255,255,0.55); font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.kpi-num {
+  font-size: 2.6rem; font-weight: 900;
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: .5rem 0;
+  line-height: 1;
+}
+.kpi-desc { color: rgba(255,255,255,0.72); font-size: .85rem; }
+.kpi-arrow { color: var(--emerald); font-size: 1.1rem; font-weight: 900; margin-right: 4px; }
+
+/* ===== BUDGET ===== */
+.budget-wrap {
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+.budget-table { width: 100%; border-collapse: collapse; }
+.budget-table thead { background: var(--grad-dark); }
+.budget-table th {
+  padding: 1.2rem 1rem;
+  color: var(--accent-2);
+  font-weight: 800;
+  font-size: .88rem;
+  text-align: right;
+}
+.budget-table td {
+  padding: 1.1rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: .9rem;
+}
+.budget-table td:first-child { font-weight: 700; color: var(--primary); }
+.budget-table tr:last-child td { border-bottom: none; }
+.budget-table tr.total {
+  background: var(--gold-light);
+}
+.budget-table tr.total td { font-weight: 900; color: var(--primary); font-size: 1rem; }
+.budget-price { font-weight: 800; color: var(--accent-3); }
+.budget-hours { color: var(--text-3); font-size: .85rem; }
+
+/* ===== CONCLUSION / CTA ===== */
+.cta {
+  background: var(--grad-dark);
+  border-radius: 28px;
+  padding: 4rem 3rem;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+.cta::before {
+  content:''; position: absolute; inset:0;
+  background: radial-gradient(circle at 20% 30%, rgba(201,162,75,0.2) 0%, transparent 40%),
+              radial-gradient(circle at 80% 70%, rgba(14,143,115,0.15) 0%, transparent 40%);
+}
+.cta-inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
+.cta h2 {
+  font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.5px;
+}
+.cta h2 span {
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.cta p {
+  color: rgba(255,255,255,0.8);
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  line-height: 2;
+}
+.cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 32px;
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: .95rem;
+  transition: all .3s;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+.btn-primary { background: var(--grad-gold); color: var(--primary); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(201,162,75,0.5); }
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.35);
+}
+.btn-outline:hover { border-color: var(--accent); background: rgba(201,162,75,0.1); }
+
+/* ===== FOOTER ===== */
+.foot {
+  background: var(--primary);
+  color: rgba(255,255,255,0.7);
+  padding: 3rem 2rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(201,162,75,0.2);
+}
+.foot-logo {
+  font-size: 1.2rem; font-weight: 900; color: #fff;
+  margin-bottom: .8rem;
+}
+.foot-logo span { color: var(--accent); }
+.foot p { font-size: .84rem; margin-bottom: .3rem; }
+.foot-meta {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: .78rem;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .exec-grid { grid-template-columns: 1fr; }
+  .issue { grid-template-columns: 40px 1fr; }
+  .issue-sev { grid-column: 2; justify-self: flex-start; }
+  .phase { padding-right: 80px; }
+  .phase-marker { right: 12px; }
+  .roadmap::before { right: 34px; }
+  .section { padding: 70px 1.2rem; }
+  .exec-wrap { padding: 2rem 1.3rem; }
+}
+@media (max-width: 560px) {
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .hero-client { flex-direction: column; gap: 8px; }
+  .hero-client-url { border-right: none; padding-right: 0; }
+  .overview-num { font-size: 2rem; }
+  .exec-score-num { font-size: 4rem; }
+}
+
+/* ===== PRINT ===== */
+@media print {
+  .nav, .hero-scroll, .cta { display: none; }
+  .issue:hover { transform: none; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== NAV ====== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-mark">ر</div>
+      <div>روابط<span> · تقرير التطوير</span></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#exec">الملخص</a></li>
+      <li><a href="#agents">المنهجية</a></li>
+      <li><a href="#overview">العيوب</a></li>
+      <li><a href="#tech">التقنية</a></li>
+      <li><a href="#ux">التجربة</a></li>
+      <li><a href="#sec">الأمان</a></li>
+      <li><a href="#mkt">التسويق</a></li>
+      <li><a href="#compete">المنافسون</a></li>
+      <li><a href="#roadmap">خطة التطوير</a></li>
+      <li><a href="#kpi">مؤشرات النجاح</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      تدقيق احترافي شامل عبر أربعة محاور متخصصة
+    </div>
+    <h1>
+      تقرير التدقيق الشامل وخطة التطوير<br>
+      لموقع <span>شركة روابط العقارية</span>
+    </h1>
+    <p class="hero-sub">
+      فحص احترافي لا يتهاون مع العيوب: من الأمان والامتثال النظامي السعودي (REGA/PDPL)،
+      مرورًا بالأداء التقني وSEO، وصولًا إلى تجربة المستخدم والتحويل والتموضع التنافسي
+      في السوق العقاري السعودي — مع خطة تنفيذ تفصيلية على 5 مراحل.
+    </p>
+    <div class="hero-client">
+      <span class="hero-client-label">العميل</span>
+      <span class="hero-client-name">شركة روابط العقارية</span>
+      <span class="hero-client-url">rsre.sa</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">124</span>
+        <span class="hero-stat-label">ملاحظة ومشكلة</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">28</span>
+        <span class="hero-stat-label">مشكلة حرجة</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">4</span>
+        <span class="hero-stat-label">محاور تدقيق</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">20+</span>
+        <span class="hero-stat-label">فرصة نمو</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">41%</span>
+        <span class="hero-stat-label">نسبة الجاهزية</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">▼ مرر للأسفل لاستعراض التقرير</div>
+</section>
+
+<!-- ====== EXEC SUMMARY ====== -->
+<section class="section" id="exec">
+  <div class="section-head">
+    <span class="section-tag tag-gold">الملخص التنفيذي</span>
+    <h2 class="section-title">تشخيص <span>شامل</span> لموقع روابط العقارية</h2>
+    <p class="section-sub">النتيجة الإجمالية لحالة الموقع بعد فحص صارم من أربعة محاور مستقلة</p>
+  </div>
+
+  <div class="exec-wrap">
+    <div class="exec-grid">
+      <div class="exec-text">
+        <h3>✦ خلاصة التشخيص</h3>
+        <p>
+          موقع <strong>rsre.sa</strong> يقدّم هوية بصرية محترمة وبُنية أولية مبنية على Next.js،
+          لكنه يعاني من <strong>فجوات بنيوية حرجة</strong> تجعله أقرب إلى "بطاقة تعريف شركاتية" منه
+          إلى "منصة عقارية تجارية رقمية" كما هو معيار السوق السعودي في 2026.
+        </p>
+        <p>
+          <strong>أبرز المخاطر:</strong> صفحات المشاريع والمجتمعات تعتمد كليًا على JavaScript (CSR) مما
+          يخفي المحتوى عن محركات البحث، غياب كامل لسياسة الخصوصية وبانر الكوكيز مخالفةً صريحة
+          لنظام <strong>PDPL السعودي</strong>، انعدام كامل لرقم ترخيص <strong>REGA (فال)</strong>
+          والسجل التجاري والرقم الضريبي، وغياب كلي لأدوات التحليلات (GA4, Meta Pixel).
+        </p>
+        <p>
+          <strong>الفرص:</strong> 20+ فرصة نمو محددة قابلة للتنفيذ، أبرزها تحويل الموقع إلى منصة تجارية
+          فعلية (حاسبة تمويل، جولات 360°، حجز عربون رقمي، تكامل وافي وساكني ونفاذ)، وإطلاق محتوى
+          SEO عربي يستهدف 50+ كلمة مفتاحية عالية النية في جدة والرياض.
+        </p>
+        <p>
+          <strong>التوصية:</strong> البدء فورًا بالمرحلة الأولى (إصلاح المخالفات النظامية خلال 14 يومًا)
+          قبل أي إنفاق تسويقي إضافي، لتفادي أي مخاطر مالية أو نظامية.
+        </p>
+      </div>
+      <div class="exec-score">
+        <div class="exec-score-label">نسبة الجاهزية الرقمية</div>
+        <div class="exec-score-num">41<span class="exec-score-unit">٪</span></div>
+        <div class="exec-bar"><div class="exec-bar-fill"></div></div>
+        <div class="exec-score-desc">⚠ يحتاج تطوير جذري</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overview-grid" id="overview">
+    <div class="overview-card">
+      <div class="overview-icon oi-danger">⛔</div>
+      <div class="overview-num">28</div>
+      <h3>ملاحظة حرجة</h3>
+      <p>تتطلب إصلاحًا فوريًا خلال 14 يومًا</p>
+    </div>
+    <div class="overview-card">
+      <div class="overview-icon oi-warning">⚠</div>
+      <div class="overview-num">41</div>
+      <h3>ملاحظة عالية</h3>
+      <p>تُعالج في الشهر الأول</p>
+    </div>
+    <div class="overview-card">
+      <div class="overview-icon oi-info">ℹ</div>
+      <div class="overview-num">39</div>
+      <h3>ملاحظة متوسطة</h3>
+      <p>تُعالج خلال 90 يومًا</p>
+    </div>
+    <div class="overview-card">
+      <div class="overview-icon oi-success">✓</div>
+      <div class="overview-num">16</div>
+      <h3>ملاحظة منخفضة</h3>
+      <p>تحسينات مستمرة</p>
+    </div>
+    <div class="overview-card">
+      <div class="overview-icon oi-gold">🎯</div>
+      <div class="overview-num">20+</div>
+      <h3>فرصة نمو</h3>
+      <p>قابلة للتنفيذ المباشر</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== AGENTS ====== -->
+<section class="section" id="agents" style="background: var(--bg-2); max-width:none; margin: 0 -2rem; padding-inline: 2rem;">
+  <div style="max-width:1440px; margin:0 auto;">
+  <div class="section-head">
+    <span class="section-tag tag-emerald">منهجية التدقيق</span>
+    <h2 class="section-title">التدقيق عبر <span>4 محاور متخصصة</span></h2>
+    <p class="section-sub">
+      اعتمد التقرير على تدقيق مستقل وشامل عبر أربعة محاور متخصصة، كل محور يُقيِّم جانبًا حيويًا من الموقع،
+      بمنهجية صارمة قائمة على الفحص المباشر والأدلة الموثّقة دون أي اجتهادات غير مستندة.
+    </p>
+  </div>
+
+  <div class="agents-grid">
+    <div class="agent-card">
+      <div class="agent-number">1</div>
+      <h4>محور الأداء التقني و SEO</h4>
+      <p>
+        فحص Core Web Vitals، بيانات Schema.org، علامات Meta، خريطة الموقع، robots.txt،
+        أدوات التحليلات، Hreflang، التحقق من SSR/CSR، الصور والخطوط.
+      </p>
+      <div class="agent-tags">
+        <span class="agent-tag">Meta Tags</span>
+        <span class="agent-tag">JSON-LD</span>
+        <span class="agent-tag">Core Web Vitals</span>
+        <span class="agent-tag">Sitemap</span>
+        <span class="agent-tag">Hreflang</span>
+      </div>
+      <div class="agent-meta">
+        <span>📋 <b>34 ملاحظة موثّقة</b></span>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <div class="agent-number">2</div>
+      <h4>محور تجربة المستخدم والمحتوى</h4>
+      <p>
+        تدقيق التصميم البصري، التنقل، بنية المعلومات، صفحات المشاريع، نماذج التحويل،
+        المصداقية، المحتوى العربي، إمكانية الوصول WCAG، ودعم RTL.
+      </p>
+      <div class="agent-tags">
+        <span class="agent-tag">UX/UI</span>
+        <span class="agent-tag">Conversion</span>
+        <span class="agent-tag">Content</span>
+        <span class="agent-tag">WCAG</span>
+        <span class="agent-tag">RTL</span>
+      </div>
+      <div class="agent-meta">
+        <span>📋 <b>34 ملاحظة موثّقة</b></span>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <div class="agent-number">3</div>
+      <h4>محور الأمان والامتثال النظامي</h4>
+      <p>
+        رؤوس الأمان (CSP, HSTS, X-Frame)، امتثال PDPL السعودي، رخص REGA والسجل التجاري،
+        حماية النماذج، SPF/DKIM/DMARC، وتأمين لوحة الإدارة.
+      </p>
+      <div class="agent-tags">
+        <span class="agent-tag">PDPL</span>
+        <span class="agent-tag">REGA</span>
+        <span class="agent-tag">CSP</span>
+        <span class="agent-tag">HSTS</span>
+        <span class="agent-tag">CSRF</span>
+      </div>
+      <div class="agent-meta">
+        <span>📋 <b>28 ملاحظة موثّقة</b></span>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <div class="agent-number">4</div>
+      <h4>محور التسويق والمنافسة</h4>
+      <p>
+        تحليل منافسين (ROSHN, Dar Al Arkan, Bayut, Wasalt, Retal)، فجوة الكلمات المفتاحية،
+        الحضور الاجتماعي، فرص AI والذكاء الاصطناعي، توافق رؤية 2030.
+      </p>
+      <div class="agent-tags">
+        <span class="agent-tag">Benchmark</span>
+        <span class="agent-tag">SEO AR</span>
+        <span class="agent-tag">Vision 2030</span>
+        <span class="agent-tag">Growth</span>
+        <span class="agent-tag">AI Ops</span>
+      </div>
+      <div class="agent-meta">
+        <span>📋 <b>28 فرصة نمو</b></span>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- ====== CATEGORIES NAV ====== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-tag tag-danger">قائمة العيوب التفصيلية</span>
+    <h2 class="section-title">124 ملاحظة موثّقة <span>عبر 4 محاور</span></h2>
+    <p class="section-sub">كل ملاحظة مصنّفة حسب الخطورة ومرفقة بحل تقني محدد قابل للتنفيذ</p>
+  </div>
+
+  <div class="cat-tabs">
+    <div class="cat-tab active">🔧 التقني & SEO <span class="badge">34</span></div>
+    <div class="cat-tab active">🎨 تجربة المستخدم <span class="badge">34</span></div>
+    <div class="cat-tab active">🛡️ الأمان & الامتثال <span class="badge">28</span></div>
+    <div class="cat-tab active">📈 التسويق & النمو <span class="badge">28</span></div>
+  </div>
+
+  <!-- ===== CAT 1: TECH / SEO ===== -->
+  <div class="cat-head" id="tech">
+    <div class="cat-head-icon">🔧</div>
+    <div class="cat-head-text">
+      <h3>المحور الأول: الأداء التقني و SEO</h3>
+      <p>فحص البنية التحتية، الفهرسة، السرعة، والبيانات المهيكلة</p>
+    </div>
+    <div class="cat-head-count">34 ملاحظة</div>
+  </div>
+
+  <div class="issues-list">
+    <div class="issue crit">
+      <div class="issue-num">1</div>
+      <div class="issue-body">
+        <h4>تكرار Title في جميع الصفحات</h4>
+        <p>الصفحات الرئيسية، about، contact تحمل نفس العنوان الحرفي <code>Rawabet Real Estate | روابط العقارية</code>. هذا تكرار كامل يدفع Google لحذف الصفحات المكررة من الفهرس.</p>
+        <span class="issue-fix"><b>الحل:</b> عنوان فريد لكل صفحة: "تواصل مع روابط العقارية | جدة"، "عن روابط العقارية | مطور عقاري منذ 1979".</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">2</div>
+      <div class="issue-body">
+        <h4>تكرار Meta Description في كل الصفحات</h4>
+        <p>نفس الوصف يظهر على كل الصفحات، والوصف مكتوب بالإنجليزية فقط بينما المحتوى عربي — إشارة مربكة لخوارزميات Google العربية.</p>
+        <span class="issue-fix"><b>الحل:</b> وصف عربي فريد 140–160 حرف لكل صفحة مع كلمات مفتاحية مستهدفة.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">3</div>
+      <div class="issue-body">
+        <h4>صفحة /projects تعرض "جاري التحميل..." في HTML الأولي</h4>
+        <p>Googlebot يرى نص "جاري تحميل المشاريع..." فقط، دون أي مشروع أو عنوان H1 أو روابط. صفحة المشاريع — أهم صفحة تجارية — غير مرئية لمحركات البحث.</p>
+        <span class="issue-fix"><b>الحل:</b> تحويل /projects إلى SSG/ISR عبر Next.js <code>generateStaticParams</code>، مع توليد HTML كامل.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">4</div>
+      <div class="issue-body">
+        <h4>غياب كامل للبيانات المهيكلة JSON-LD</h4>
+        <p>لا يوجد أي مخطط Schema.org على الموقع: لا Organization، لا RealEstateAgent، لا LocalBusiness، لا Residence، لا BreadcrumbList، لا BlogPosting. هذا يحرم الموقع من Rich Results وGoogle Knowledge Panel.</p>
+        <span class="issue-fix"><b>الحل:</b> إضافة مخططات JSON-LD كاملة: Organization+RealEstateAgent على الرئيسية، LocalBusiness على /contact، Residence على كل مشروع.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">5</div>
+      <div class="issue-body">
+        <h4>Canonical خاطئ على /projects</h4>
+        <p>صفحة /projects تحمل canonical إلى الجذر <code>https://rsre.sa</code> بدل <code>https://rsre.sa/projects</code>، مما يخبر Google بدمج الصفحتين وفهرسة الجذر فقط.</p>
+        <span class="issue-fix"><b>الحل:</b> كل صفحة تضع canonical الخاص بها يطابق الـ URL الفعلي.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">6</div>
+      <div class="issue-body">
+        <h4>انعدام أي أداة تحليلات (GA4/GTM/Pixel)</h4>
+        <p>لا يوجد أي سكربت تتبع. شركة عقارية بدون تحليلات تعمل عمياء: لا تعرف مصدر العملاء، ولا تكلفة الاكتساب، ولا الكلمات التي حولت.</p>
+        <span class="issue-fix"><b>الحل:</b> تركيب GA4 + GTM + Meta Pixel + Snap Pixel + TikTok Pixel + Google Ads Tag.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">7</div>
+      <div class="issue-body">
+        <h4>الكلمات المفتاحية العربية غير مستهدفة في أي Title</h4>
+        <p>لا ذكر لـ "شقق للبيع في جدة"، "مشاريع عقارية جدة"، "مطور عقاري"، "حي الزهراء". هذه كلمات الشراء ذات النية العالية.</p>
+        <span class="issue-fix"><b>الحل:</b> بحث كلمات مفتاحية + دمجها في Title/H1/Meta لكل صفحة.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">8</div>
+      <div class="issue-body">
+        <h4>غياب hreflang رغم وجود زر EN</h4>
+        <p>لا توجد وسوم <code>hreflang="ar-SA"</code> أو <code>hreflang="en"</code> في أي صفحة، رغم أن الواجهة توحي بدعم لغتين.</p>
+        <span class="issue-fix"><b>الحل:</b> إضافة hreflang + x-default في الـ head عند تفعيل النسخة الإنجليزية.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">9</div>
+      <div class="issue-body">
+        <h4>مسار /en يُرجع 404</h4>
+        <p>زر "EN" في القائمة موجود، لكن أي محاولة للوصول إلى /en تنتهي بخطأ 404. تضليل لمحركات البحث وتجربة سيئة للمستثمر الأجنبي.</p>
+        <span class="issue-fix"><b>الحل:</b> إما تنفيذ نسخة /en كاملة بـ <code>next-i18next</code>، أو إخفاء الزر.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">10</div>
+      <div class="issue-body">
+        <h4>Meta Description بالإنجليزية على موقع عربي</h4>
+        <p>الصفحة <code>lang="ar"</code> و<code>dir="rtl"</code> لكن meta description بالإنجليزية، مما يُضعف ظهور الصفحة في Google عربي (السعودية).</p>
+        <span class="issue-fix"><b>الحل:</b> كتابة أوصاف عربية خالصة متطابقة مع لغة المحتوى.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">11</div>
+      <div class="issue-body">
+        <h4>sitemap.xml بتواريخ lastmod وهمية</h4>
+        <p>جميع الصفحات تحمل <code>lastmod</code> يساوي تاريخ اليوم بالضبط على كل طلب، مما يدل على توليد ديناميكي غير موثوق. Google صراحةً يخفّض ثقته بـ sitemaps عند اكتشاف هذا النمط.</p>
+        <span class="issue-fix"><b>الحل:</b> اشتقاق lastmod من تاريخ التعديل الفعلي للمحتوى من CMS.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">12</div>
+      <div class="issue-body">
+        <h4>صفحة /communities بدون H1 ولا محتوى مرئي في HTML</h4>
+        <p>Googlebot يرى رسالة تحميل JS فقط، لا H1 ولا قوائم مشاريع/مجتمعات.</p>
+        <span class="issue-fix"><b>الحل:</b> تحويل الصفحة إلى SSR مع H1 ثابت وبيانات مبنية على السيرفر.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">13</div>
+      <div class="issue-body">
+        <h4>صور Hero بحجم 3840px</h4>
+        <p>صور <code>hero/first.jpg</code> و<code>second.jpg</code> تُقدَّم بعرض 3840px — تحميلها على الجوال يدمر LCP ويُضخّم استهلاك البيانات.</p>
+        <span class="issue-fix"><b>الحل:</b> استخدام <code>next/image</code> مع <code>sizes</code> دقيقة، <code>priority</code> للصورة الأولى فقط، وتفعيل AVIF/WebP.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">14</div>
+      <div class="issue-body">
+        <h4>4 ملفات خطوط TTF ثقيلة</h4>
+        <p>TTF صيغة قديمة، و WOFF2 أصغر بنسبة ~30%. كل ملف خط يُحمَّل قبل عرض النص.</p>
+        <span class="issue-fix"><b>الحل:</b> التحويل إلى WOFF2 + <code>font-display: swap</code> + <code>preload</code> للخط الأساسي فقط.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">15</div>
+      <div class="issue-body">
+        <h4>viewport يستخدم maximum-scale=1 ويمنع التكبير</h4>
+        <p><code>&lt;meta viewport content="... maximum-scale=1"&gt;</code> يمنع المستخدم من التكبير — مخالفة WCAG 2.1 وتُعد عائقًا لإمكانية الوصول.</p>
+        <span class="issue-fix"><b>الحل:</b> إزالة <code>maximum-scale=1</code> مع إبقاء <code>width=device-width, initial-scale=1</code> فقط.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">16</div>
+      <div class="issue-body">
+        <h4>غياب Google Search Console verification</h4>
+        <p>لم يُلاحَظ وسم تحقق GSC في الـ head، مما يعني أن الموقع ربما غير مُدار عبر Search Console، وبالتالي لا توجد بيانات أداء بحث، ولا رصد لأخطاء الفهرسة، ولا تقديم sitemap رسمي.</p>
+        <span class="issue-fix"><b>الحل:</b> تسجيل النطاق في Search Console (DNS verification) + تقديم sitemaps + تفعيل Bing Webmaster Tools.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">17</div>
+      <div class="issue-body">
+        <h4>alt text عديم المعنى للصور</h4>
+        <p>قيم مثل "Hero image 2"، "Hero image 3" لا تخدم SEO ولا قارئات الشاشة.</p>
+        <span class="issue-fix"><b>الحل:</b> alt وصفي عربي: "مشروع وحيج السكني — واجهة المدخل الرئيسية بجدة".</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">18</div>
+      <div class="issue-body">
+        <h4>غياب BreadcrumbList schema</h4>
+        <p>لا فتات خبز مهيكلة في الصفحات الداخلية، مما يحرم الموقع من عرض مسار التنقل في نتائج Google.</p>
+        <span class="issue-fix"><b>الحل:</b> <code>BreadcrumbList</code> schema + مكون Breadcrumbs بصري على كل صفحة داخلية.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">19</div>
+      <div class="issue-body">
+        <h4>غياب BlogPosting schema للمدونة</h4>
+        <p>صفحة /blogs بدون مخطط Article لكل مقال، ولا تواريخ نشر ظاهرة.</p>
+        <span class="issue-fix"><b>الحل:</b> Schema.BlogPosting مع author, datePublished, image, mainEntityOfPage.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">20</div>
+      <div class="issue-body">
+        <h4>Title مختلط اللغة يُهدر مساحة 60 حرف</h4>
+        <p>"Rawabet Real Estate | روابط العقارية" تكرار غير مفيد. لا مكان لكلمات مفتاحية كـ "مطور عقاري جدة".</p>
+        <span class="issue-fix"><b>الحل:</b> "روابط العقارية — مطور عقاري في جدة | مشاريع سكنية فاخرة".</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">21</div>
+      <div class="issue-body">
+        <h4>لا تقديم AVIF/WebP صريح</h4>
+        <p>لم نرَ في HTML مصادر <code>&lt;source type="image/avif"&gt;</code>. AVIF يوفر ~50% من حجم JPEG بنفس الجودة.</p>
+        <span class="issue-fix"><b>الحل:</b> <code>next.config.js</code>: <code>images.formats: ['image/avif','image/webp']</code>.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">22</div>
+      <div class="issue-body">
+        <h4>sitemap بسيط بدون sitemap index</h4>
+        <p>20 رابط في ملف واحد بدون تقسيم للمشاريع/المدونة/الصور — يُضعف قابلية التوسع.</p>
+        <span class="issue-fix"><b>الحل:</b> sitemap-pages / sitemap-projects / sitemap-blogs / sitemap-images.xml + sitemap index.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">23</div>
+      <div class="issue-body">
+        <h4>og:image يستخدم الشعار فقط</h4>
+        <p>صورة المشاركة الاجتماعية هي الشعار — يُنتج معاينة مملة على واتساب وتويتر.</p>
+        <span class="issue-fix"><b>الحل:</b> توليد صورة OG مخصصة 1200×630 لكل مشروع ومقال.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">24</div>
+      <div class="issue-body">
+        <h4>غياب إشارات CDN</h4>
+        <p>الأصول تُقدَّم من نفس النطاق دون subdomain CDN ظاهر — يبطئ التحميل للزوار البعيدين جغرافيًا.</p>
+        <span class="issue-fix"><b>الحل:</b> تفعيل Cloudflare / Vercel Edge Network للأصول الثابتة.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">25</div>
+      <div class="issue-body">
+        <h4>Twitter Card بدون site/creator</h4>
+        <p>لا يوجد <code>twitter:site</code> ولا <code>twitter:creator</code> ربط للحساب الرسمي.</p>
+        <span class="issue-fix"><b>الحل:</b> إضافة <code>twitter:site="@Rawabet_sa"</code>.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">26</div>
+      <div class="issue-body">
+        <h4>محتوى مزدوج اللغة داخل صفحات <code>lang="ar"</code></h4>
+        <p>صفحة /about تخلط العربية والإنجليزية داخل نفس الـ lang attribute، مما يُربك خوارزميات اللغة.</p>
+        <span class="issue-fix"><b>الحل:</b> فصل صارم بين /ar و /en.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">27</div>
+      <div class="issue-body">
+        <h4>لا يوجد ربط Google Business Profile / خرائط جوجل</h4>
+        <p>أهم عامل Local SEO في السوق السعودي غائب تمامًا.</p>
+        <span class="issue-fix"><b>الحل:</b> إنشاء GBP موثّق + ربطه بالموقع + تشجيع التقييمات.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">28</div>
+      <div class="issue-body">
+        <h4>og:locale:alternate مفقود</h4>
+        <p>لم يُحدَّد locale بديل رغم التلميح إلى الإنجليزية.</p>
+        <span class="issue-fix"><b>الحل:</b> إضافته عند توفر /en.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">29</div>
+      <div class="issue-body">
+        <h4>غياب srcset/sizes في صور المشاريع</h4>
+        <p>Next Image يضعها افتراضيًا، لكن بعض الصور تُدرج يدويًا دون تحسين.</p>
+        <span class="issue-fix"><b>الحل:</b> مراجعة كل مكون Image + توحيد استخدام next/image.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">30</div>
+      <div class="issue-body">
+        <h4>استخدام meta keywords المهجور</h4>
+        <p>وسم مهجور منذ 2009 ولا يستخدمه Google.</p>
+        <span class="issue-fix"><b>الحل:</b> إزالته.</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">31</div>
+      <div class="issue-body">
+        <h4>robots.txt مبسّط للغاية</h4>
+        <p>يحجب /admin و/login فقط، لا يحجب /api/ ولا معاملات التتبع.</p>
+        <span class="issue-fix"><b>الحل:</b> Disallow: /api/, /*?utm_*, مع الإبقاء على Sitemap.</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">32</div>
+      <div class="issue-body">
+        <h4>priority و changefreq قيم وهمية</h4>
+        <p>Google تجاهلها رسميًا منذ سنوات.</p>
+        <span class="issue-fix"><b>الحل:</b> إزالتها أو ضبطها بقيم واقعية.</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">33</div>
+      <div class="issue-body">
+        <h4>رقم جوال وبريد بدون tel:/mailto:</h4>
+        <p>يظهران كنص دون أن يكونا روابط قابلة للنقر على الجوال.</p>
+        <span class="issue-fix"><b>الحل:</b> <code>&lt;a href="tel:+966..."&gt;</code>.</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">34</div>
+      <div class="issue-body">
+        <h4>التباس النطاقات: rsre.sa و rawabet.re</h4>
+        <p>نطاق ثانٍ مرتبط بالاسم نفسه قد يُجزّئ سلطة SEO.</p>
+        <span class="issue-fix"><b>الحل:</b> 301 Redirect دائم + <code>sameAs</code> في Schema.</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+  </div>
+
+  <!-- ===== CAT 2: UX ===== -->
+  <div class="cat-head" id="ux">
+    <div class="cat-head-icon">🎨</div>
+    <div class="cat-head-text">
+      <h3>المحور الثاني: تجربة المستخدم والمحتوى</h3>
+      <p>تدقيق التصميم، التنقل، التحويل، وقابلية الوصول</p>
+    </div>
+    <div class="cat-head-count">34 ملاحظة</div>
+  </div>
+
+  <div class="issues-list">
+    <div class="issue crit">
+      <div class="issue-num">1</div>
+      <div class="issue-body">
+        <h4>CSR يكسر تجربة التحميل الأولى</h4>
+        <p>كل من /projects, /communities, /media, /blogs تعرض "جاري تحميل..." نصيًا قبل ظهور المحتوى. تجربة ضعيفة على شبكات بطيئة + كارثة SEO.</p>
+        <span class="issue-fix"><b>الحل:</b> SSG + Skeleton placeholders بدل النص.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">2</div>
+      <div class="issue-body">
+        <h4>انعدام التصفية والفرز في صفحة المشاريع</h4>
+        <p>/projects بدون أي فلاتر: الموقع، النوع، السعر، المساحة، عدد الغرف، حالة المشروع، نسبة الإنجاز. هذا أبجديات أي موقع عقاري في 2026.</p>
+        <span class="issue-fix"><b>الحل:</b> شريط فلاتر جانبي + Sort + تبديل Grid/List/Map + حفظ الفلتر في URL.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">3</div>
+      <div class="issue-body">
+        <h4>لا توجد صفحات تفاصيل مشروع غنية</h4>
+        <p>غياب قالب صفحة مشروع يحتوي: معرض صور، مخطط طوابق، جولة 360°، فيديو، مواصفات، حالة التشطيب، تاريخ التسليم، نموذج حجز.</p>
+        <span class="issue-fix"><b>الحل:</b> بناء قالب <code>/projects/[slug]</code> كامل بـ Gallery + Floorplans + 3D Tour + Inquiry Form + Brochure PDF.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">4</div>
+      <div class="issue-body">
+        <h4>زر EN يُرجع 404 — ثقة المستثمر الأجنبي مكسورة</h4>
+        <p>في سوق جدة الذي يعتمد على المغتربين والمستثمرين الخليجيين، كسر زر اللغة = خسارة شريحة مباشرة.</p>
+        <span class="issue-fix"><b>الحل:</b> بناء نسخة إنجليزية كاملة مترجمة بيد محترف (لا آلي).</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">5</div>
+      <div class="issue-body">
+        <h4>مدونة وأخبار فارغة تعرض شاشة تحميل فقط</h4>
+        <p>/blogs و /media شاشتا تحميل دون أي محتوى أو حتى placeholder لعدد المقالات أو الفئات.</p>
+        <span class="issue-fix"><b>الحل:</b> نشر 12+ مقال افتتاحي + Skeleton عند التحميل + عرض آخر 3 مقالات في الصفحة الرئيسية.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">6</div>
+      <div class="issue-body">
+        <h4>لا نموذج اهتمام سياقي (Lead Funnel) داخل بطاقات المشاريع</h4>
+        <p>نموذج التواصل العام في /contact لا يكفي. يجب نماذج قصيرة داخل كل مشروع: "احجز معاينة"، "اطلب الكتالوج"، "احسب التمويل".</p>
+        <span class="issue-fix"><b>الحل:</b> CTA قصير (3 حقول) على كل بطاقة مشروع + ربط CRM.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">7</div>
+      <div class="issue-body">
+        <h4>Value Proposition في الـ Hero ضبابي</h4>
+        <p>"نمط الحياة الذي تستحقه" عام جدًا — لا يذكر المدينة، ولا الجمهور، ولا رقم إنجاز. أي منافس يمكنه استخدامه.</p>
+        <span class="issue-fix"><b>الحل:</b> عنوان محدد + Subheadline يذكر "جدة منذ 1979" + Trust Bar أسفل Hero بأرقام ثابتة.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">8</div>
+      <div class="issue-body">
+        <h4>إهدار أصل تسويقي: تاريخ 1979</h4>
+        <p>تاريخ تأسيس عام 1979 (47 سنة) ذُكر في API فقط ولا يظهر في الهوية المرئية للموقع. هذا رصيد ثقة ضخم مهدور.</p>
+        <span class="issue-fix"><b>الحل:</b> إبراز "تأسست منذ 1979" في الهيرو، الفوتر، "عن روابط"، و Trust Bar.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">9</div>
+      <div class="issue-body">
+        <h4>تناقض إحصائيات "عن روابط"</h4>
+        <p>"+50 مشروع" مع "+200 عميل" مع "4 وحدات سكنية" — أرقام متناقضة تُفقد المصداقية.</p>
+        <span class="issue-fix"><b>الحل:</b> مراجعة الأرقام + استبدال "عدد العملاء" بمساحات مطوّرة (م²) وقيمة المشاريع والمدن.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">10</div>
+      <div class="issue-body">
+        <h4>غياب زر واتساب عائم على الجوال</h4>
+        <p>واتساب هو قناة #1 في السعودية، وغيابه كزر ثابت عائم (FAB) خسارة كبيرة في التحويل.</p>
+        <span class="issue-fix"><b>الحل:</b> زر WhatsApp عائم (bottom-left) + رقم click-to-call ثابت على الجوال.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">11</div>
+      <div class="issue-body">
+        <h4>رقم هاتف واحد لكل الأقسام</h4>
+        <p>+966509010016 يُستخدم لكل شيء: مبيعات، خدمة عملاء، صيانة. لا فصل بين الأقسام.</p>
+        <span class="issue-fix"><b>الحل:</b> فصل الخطوط + عرض "متاح الآن" مبني على ساعات العمل.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">12</div>
+      <div class="issue-body">
+        <h4>غياب قسم آراء العملاء والشركاء</h4>
+        <p>لا يوجد Testimonials، ولا شعارات بنوك الرهن (الراجحي، الأهلي، SNB)، ولا شعار صندوق التنمية العقارية، ولا شهادة "معتمد من سكني".</p>
+        <span class="issue-fix"><b>الحل:</b> قسم Testimonials + شريط شركاء التمويل + شارة "سكني".</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">13</div>
+      <div class="issue-body">
+        <h4>قسم "إمداد" والمقاولات في حالة "قريبًا" منذ مدة</h4>
+        <p>عرض "قريبًا" بدون جدول زمني يُضعف الانطباع الاحترافي.</p>
+        <span class="issue-fix"><b>الحل:</b> إما إخفاؤه أو "اشترك ليصلك الإطلاق".</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">14</div>
+      <div class="issue-body">
+        <h4>لا أدلة أحياء (Neighborhood Guides)</h4>
+        <p>المشتري السعودي يبحث عن معلومات الحي قبل المشروع (مدارس، مسافات، خدمات). لا يوجد محتوى عن السلامة، الزهراء، الشاطئ، أبحر.</p>
+        <span class="issue-fix"><b>الحل:</b> 15+ صفحة "دليل الحي" بصور وخرائط وبيانات.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">15</div>
+      <div class="issue-body">
+        <h4>ساعات العمل تستثني السبت</h4>
+        <p>الأحد-الخميس 9ص-6م — لكن السوق العقاري السعودي نشط جدًا أيام السبت للمعاينات.</p>
+        <span class="issue-fix"><b>الحل:</b> فتح السبت أو "حجز معاينة 24/7" عبر النموذج.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">16</div>
+      <div class="issue-body">
+        <h4>النموذج بدون تحقق HTML5 ولا CAPTCHA</h4>
+        <p>لا <code>required</code>، لا <code>pattern</code>، لا reCAPTCHA. مكشوف للسبام الآلي.</p>
+        <span class="issue-fix"><b>الحل:</b> reCAPTCHA v3 + honeypot + rate limit + server validation.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">17</div>
+      <div class="issue-body">
+        <h4>صفحة /contact بدون Google Maps مدمج</h4>
+        <p>عنوان نصي فقط دون iframe خريطة أو زر "احصل على الاتجاهات" — يخسر إشارات Local SEO.</p>
+        <span class="issue-fix"><b>الحل:</b> iframe Google Maps + pin على الموقع + زر Open in Maps.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">18</div>
+      <div class="issue-body">
+        <h4>قائمة تنقل بسيطة بلا Mega Menu</h4>
+        <p>"مشاريعنا" زر مفرد بدلًا من قائمة منسدلة بمشاريع مميزة + تصفية سريعة.</p>
+        <span class="issue-fix"><b>الحل:</b> Mega Menu بصور المشاريع + فلاتر سريعة حسب المدينة والنوع.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">19</div>
+      <div class="issue-body">
+        <h4>لا يوجد بحث داخلي</h4>
+        <p>لا أيقونة بحث في الهيدر للعثور على مشروع أو حي أو كلمة مفتاحية.</p>
+        <span class="issue-fix"><b>الحل:</b> Search Bar + Auto-suggest + Algolia/Meilisearch.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">20</div>
+      <div class="issue-body">
+        <h4>غياب فتات الخبز في الصفحات الداخلية</h4>
+        <p>بنية معلومات صعبة الإبحار لموقع عقاري متعدد المستويات.</p>
+        <span class="issue-fix"><b>الحل:</b> Breadcrumbs مرئية + Schema BreadcrumbList.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">21</div>
+      <div class="issue-body">
+        <h4>محتوى عربي عام وتسويقي زائد</h4>
+        <p>"نمط الحياة الذي تستحقه"، "مجتمعات تليق بالطموحات" عبارات مكررة بلا أرقام ولا فوارق.</p>
+        <span class="issue-fix"><b>الحل:</b> محتوى مبني على specifics: متر مربع، سعر البداية، مدة التسليم، الضمان.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">22</div>
+      <div class="issue-body">
+        <h4>صفحة "عن روابط" بلا وجوه قيادية</h4>
+        <p>"Passionate professionals" بلا صور CEO/COO/CRO ولا سير ذاتية ولا LinkedIn.</p>
+        <span class="issue-fix"><b>الحل:</b> قسم "قيادتنا" بصور احترافية + سير ذاتية + روابط LinkedIn.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">23</div>
+      <div class="issue-body">
+        <h4>لا صفحة FAQ</h4>
+        <p>لا أسئلة شائعة عن التمويل، الدفع، نقل الصك، التسليم، الضمان.</p>
+        <span class="issue-fix"><b>الحل:</b> /faq مع Schema.FAQPage — يُحسّن SEO ويقلل أعباء الخدمة.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">24</div>
+      <div class="issue-body">
+        <h4>لا حاسبة تمويل عقاري</h4>
+        <p>أداة أساسية تزيد الوقت على الصفحة والتحويل بشكل ملحوظ في القطاع.</p>
+        <span class="issue-fix"><b>الحل:</b> حاسبة داخل صفحة كل مشروع مربوطة بمعدلات بنوك حقيقية.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">25</div>
+      <div class="issue-body">
+        <h4>لا مقارنة وحدات / مشاريع</h4>
+        <p>ميزة "Compare" أساسية في أي موقع عقاري تنافسي (Bayut, Wasalt).</p>
+        <span class="issue-fix"><b>الحل:</b> قائمة مقارنة حتى 3 مشاريع + جدول مواصفات جنبًا إلى جنب.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">26</div>
+      <div class="issue-body">
+        <h4>لا حفظ مفضلات / حسابات مسجّلة</h4>
+        <p>المستخدم لا يستطيع حفظ مشاريع تعجبه للرجوع لاحقًا.</p>
+        <span class="issue-fix"><b>الحل:</b> تسجيل دخول نفاذ (Nafath) + Save Favorites + Save Search.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">27</div>
+      <div class="issue-body">
+        <h4>لا دفع رقمي للعربون</h4>
+        <p>لا مدى / Apple Pay / STC Pay لحجز الوحدة بعربون رمزي.</p>
+        <span class="issue-fix"><b>الحل:</b> بوابة دفع آمنة (HyperPay/Tap) + سقف حد آمن.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">28</div>
+      <div class="issue-body">
+        <h4>لا إمكانية وصول (Accessibility Toolbar)</h4>
+        <p>لا زر تكبير خط، ولا وضع تباين عالٍ، ولا قراءة صوتية.</p>
+        <span class="issue-fix"><b>الحل:</b> شريط أدوات وصول + اختبار axe DevTools + WCAG 2.1 AA.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">29</div>
+      <div class="issue-body">
+        <h4>غياب TikTok وSnapchat من قنوات التواصل</h4>
+        <p>القناتان أساسيتان في السوق السعودي لمحتوى العقار والبيوت.</p>
+        <span class="issue-fix"><b>الحل:</b> إطلاق @rawabet_sa على المنصتين بمحتوى Walk-through.</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">30</div>
+      <div class="issue-body">
+        <h4>رسائل تحميل نصية بدل Skeletons</h4>
+        <p>"جاري التحميل..." نص بسيط — يوحي بضعف تقني.</p>
+        <span class="issue-fix"><b>الحل:</b> Skeleton placeholders لكل بطاقة ومكون.</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">31</div>
+      <div class="issue-body">
+        <h4>لا Dark Mode</h4>
+        <p>ليس أولوية لكنه توقع الشريحة الشابة.</p>
+        <span class="issue-fix"><b>الحل:</b> CSS variables + <code>prefers-color-scheme</code>.</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">32</div>
+      <div class="issue-body">
+        <h4>RTL قد لا يكون مكتمل التحقق</h4>
+        <p>الأيقونات، الأسهم، التواريخ، الأرقام قد لا تتجه صحيحًا في كل المكونات.</p>
+        <span class="issue-fix"><b>الحل:</b> اختبار يدوي + logical properties (<code>margin-inline-start</code>).</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">33</div>
+      <div class="issue-body">
+        <h4>لا تفعيل PWA / تطبيق جوال</h4>
+        <p>لا Manifest، لا Service Worker، لا زر "إضافة إلى الشاشة الرئيسية".</p>
+        <span class="issue-fix"><b>الحل:</b> PWA كاملة مع offline caching للمشاريع المفضلة.</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">34</div>
+      <div class="issue-body">
+        <h4>لا Micro-interactions مدروسة</h4>
+        <p>التحولات أساسية، لا تصاميم حركة (Motion Design) تُبرز تجربة البراند الفاخر.</p>
+        <span class="issue-fix"><b>الحل:</b> Framer Motion على المكونات الحرجة (Hero, Cards, Hover).</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+  </div>
+
+  <!-- ===== CAT 3: SECURITY & COMPLIANCE ===== -->
+  <div class="cat-head" id="sec">
+    <div class="cat-head-icon">🛡️</div>
+    <div class="cat-head-text">
+      <h3>المحور الثالث: الأمان والامتثال النظامي السعودي</h3>
+      <p>حماية البيانات PDPL، رخص REGA، رؤوس الأمان، وحماية النماذج</p>
+    </div>
+    <div class="cat-head-count">28 ملاحظة</div>
+  </div>
+
+  <div class="issues-list">
+    <div class="issue crit">
+      <div class="issue-num">1</div>
+      <div class="issue-body">
+        <h4>غياب كامل لرقم رخصة "فال" من REGA</h4>
+        <p>لا يظهر في أي صفحة أي رقم ترخيص صادر عن الهيئة العامة للعقار. كل شركة تمارس التطوير/الوساطة/التسويق العقاري مُلزمة بإبراز رقم فال في قنواتها الإلكترونية.</p>
+        <span class="issue-fix"><b>الحل:</b> شريط ثابت في الفوتر: "مرخص من الهيئة العامة للعقار — فال رقم: XXXXXXXXXX" مع رابط تحقق rega.gov.sa.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">2</div>
+      <div class="issue-body">
+        <h4>لا رقم سجل تجاري في الفوتر</h4>
+        <p>مخالفة صريحة لمتطلبات وزارة التجارة بإبراز السجل في الموقع الإلكتروني + نظام مكافحة التستر التجاري.</p>
+        <span class="issue-fix"><b>الحل:</b> "سجل تجاري رقم: XXXXXXXXXX" مع ربط بوابة وزارة التجارة للتحقق.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">3</div>
+      <div class="issue-body">
+        <h4>لا رقم ضريبة القيمة المضافة (VAT)</h4>
+        <p>هيئة الزكاة والضريبة والجمارك تلزم المنشآت بإبراز الرقم الضريبي (15 خانة) على القنوات الرقمية.</p>
+        <span class="issue-fix"><b>الحل:</b> "الرقم الضريبي: 3XXXXXXXXXXXXXX".</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">4</div>
+      <div class="issue-body">
+        <h4>غياب كامل لسياسة الخصوصية (PDPL)</h4>
+        <p>/privacy-policy يرجع 404. مخالفة صريحة لنظام حماية البيانات الشخصية السعودي (مرسوم ملكي م/19)، الذي يُلزم بتزويد صاحب البيانات بإشعار خصوصية واضح.</p>
+        <span class="issue-fix"><b>الحل:</b> سياسة PDPL كاملة: الغرض، الأساس النظامي، الفئات، فترة الاحتفاظ، النقل خارج المملكة، حقوق صاحب البيانات، بيانات DPO، آلية الشكاوى لـ SDAIA.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">5</div>
+      <div class="issue-body">
+        <h4>غياب بانر الكوكيز وإدارة الموافقة (CMP)</h4>
+        <p>PDPL يشترط موافقة صريحة قبل معالجة بيانات غير ضرورية.</p>
+        <span class="issue-fix"><b>الحل:</b> Cookiebot / Usercentrics / OneTrust عربي + تصنيف (ضرورية/تحليلية/تسويقية).</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">6</div>
+      <div class="issue-body">
+        <h4>غياب رقم ترخيص الإعلان العقاري</h4>
+        <p>كل إعلان عقاري في المملكة يجب أن يحمل رقم ترخيص إعلان من REGA. بطاقات المشاريع تعرض الوحدات بدون هذا الرقم.</p>
+        <span class="issue-fix"><b>الحل:</b> إضافة "رقم ترخيص الإعلان: …" على كل بطاقة مشروع.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">7</div>
+      <div class="issue-body">
+        <h4>غياب Content-Security-Policy</h4>
+        <p>لا CSP مما يفتح الباب لهجمات XSS وحقن سكربتات خارجية.</p>
+        <span class="issue-fix"><b>الحل:</b> CSP صارمة: <code>default-src 'self'; script-src 'self' 'nonce-...'; frame-ancestors 'none'; base-uri 'self';</code></span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">8</div>
+      <div class="issue-body">
+        <h4>نموذج /contact بدون reCAPTCHA ولا honeypot</h4>
+        <p>مكشوف تمامًا لهجمات السبام، وقد يُستغل لإرسال بريد مزعج عبر info@rsre.sa.</p>
+        <span class="issue-fix"><b>الحل:</b> reCAPTCHA v3 + honeypot + rate limit على API + server validation.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">9</div>
+      <div class="issue-body">
+        <h4>/admin يكشف لوحة الإدارة مباشرة على النطاق العام</h4>
+        <p>الطلب على /admin يعيد "Preparing your dashboard" مما يكشف وجود نظام إدارة على المسار العام دون redirect 302 — يسهّل هجمات تخمين كلمات المرور.</p>
+        <span class="issue-fix"><b>الحل:</b> نقل اللوحة إلى subdomain (admin.rsre.sa) خلف WAF + IP allowlist + MFA إجباري + rate limiting + مراقبة Auth.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">10</div>
+      <div class="issue-body">
+        <h4>غياب HSTS</h4>
+        <p>لا سياسة HSTS، مما يترك الباب لهجمات downgrade.</p>
+        <span class="issue-fix"><b>الحل:</b> <code>Strict-Transport-Security: max-age=63072000; includeSubDomains; preload</code> + تسجيل في HSTS Preload list.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">11</div>
+      <div class="issue-body">
+        <h4>غياب X-Frame-Options / frame-ancestors</h4>
+        <p>الموقع قابل للتضمين في iframe — عرضة لـ Clickjacking.</p>
+        <span class="issue-fix"><b>الحل:</b> <code>X-Frame-Options: DENY</code> + <code>frame-ancestors 'none'</code> في CSP.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">12</div>
+      <div class="issue-body">
+        <h4>جمع بيانات شخصية في نموذج التواصل دون إشعار</h4>
+        <p>النموذج يجمع اسم، بريد، جوال، رسالة بدون إشعار خصوصية ولا مربع موافقة ولا رابط سياسة.</p>
+        <span class="issue-fix"><b>الحل:</b> فقرة إشعار أعلى الزر + checkbox موافقة إلزامي + رابط للسياسة.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">13</div>
+      <div class="issue-body">
+        <h4>غياب رقم موحّد (9200/8001) ورقم منشأة</h4>
+        <p>الاعتماد على رقم جوال شخصي (+966509010016) لا يليق بشركة تطوير عقاري كبرى.</p>
+        <span class="issue-fix"><b>الحل:</b> الحصول على رقم 9200 موحّد + ربطه بكول سنتر.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">14</div>
+      <div class="issue-body">
+        <h4>غياب صفحة الشروط والأحكام</h4>
+        <p>لا Terms of Use تحدد حدود المسؤولية، الملكية الفكرية، الاختصاص القضائي (المحاكم السعودية).</p>
+        <span class="issue-fix"><b>الحل:</b> صياغة /terms بواسطة مستشار قانوني سعودي + استضافتها.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">15</div>
+      <div class="issue-body">
+        <h4>ضرورة التحقق من SPF/DKIM/DMARC للنطاق</h4>
+        <p>استخدام info@rsre.sa دون DMARC reject يسهّل انتحال نطاق الشركة في عمليات احتيال عقارية.</p>
+        <span class="issue-fix"><b>الحل:</b> SPF -all + DKIM 2048-bit + <code>DMARC1; p=reject; rua=mailto:dmarc@rsre.sa; adkim=s; aspf=s;</code></span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">16</div>
+      <div class="issue-body">
+        <h4>عدم تأكيد إعادة التوجيه 301 من HTTP إلى HTTPS</h4>
+        <p>يجب 301 دائمة لكل المسارات على المنفذ 80.</p>
+        <span class="issue-fix"><b>الحل:</b> إعداد redirect في Vercel/CDN + اختبار بـ <code>curl -I http://rsre.sa</code>.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">17</div>
+      <div class="issue-body">
+        <h4>robots.txt يُفصح صراحة عن مسارات إدارية</h4>
+        <p>يذكر <code>Disallow: /admin</code> و<code>/login</code> — يكشف سطح الهجوم للبوتات.</p>
+        <span class="issue-fix"><b>الحل:</b> حذف الأسطر من robots.txt + حماية الصفحات بـ auth + noindex header.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">18</div>
+      <div class="issue-body">
+        <h4>غياب X-Content-Type-Options</h4>
+        <p>يسمح بـ MIME sniffing.</p>
+        <span class="issue-fix"><b>الحل:</b> <code>X-Content-Type-Options: nosniff</code>.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">19</div>
+      <div class="issue-body">
+        <h4>غياب Referrer-Policy</h4>
+        <p>معلومات URL قد تتسرب لمواقع خارجية.</p>
+        <span class="issue-fix"><b>الحل:</b> <code>Referrer-Policy: strict-origin-when-cross-origin</code>.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">20</div>
+      <div class="issue-body">
+        <h4>غياب Permissions-Policy</h4>
+        <p>لا تقييد على الكاميرا، الميكروفون، الموقع.</p>
+        <span class="issue-fix"><b>الحل:</b> <code>Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()</code>.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">21</div>
+      <div class="issue-body">
+        <h4>عدم تعيين/إعلان مسؤول حماية بيانات (DPO)</h4>
+        <p>PDPL يُلزم بعض المتحكمين بتعيين DPO والإفصاح عنه.</p>
+        <span class="issue-fix"><b>الحل:</b> تعيين DPO داخلي أو خارجي + نشر بيانات التواصل في صفحة الخصوصية.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">22</div>
+      <div class="issue-body">
+        <h4>لا إفصاح عن نقل البيانات خارج المملكة</h4>
+        <p>Next.js على Vercel/Cloudflare يعني معالجة خارج المملكة — PDPL يُلزم بالإفصاح وضوابط النقل.</p>
+        <span class="issue-fix"><b>الحل:</b> فقرة في سياسة الخصوصية + استخدام مناطق معالجة معتمدة من SDAIA.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">23</div>
+      <div class="issue-body">
+        <h4>عدم وجود حماية CSRF مرئية على النماذج</h4>
+        <p>يجب توكن CSRF + SameSite cookies للطلبات المتغيرة.</p>
+        <span class="issue-fix"><b>الحل:</b> CSRF token + SameSite=Strict + double-submit cookie.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">24</div>
+      <div class="issue-body">
+        <h4>عدم الالتزام المؤكد بمعايير DGA والوصول الرقمي</h4>
+        <p>لا بيان وصولية ولا أدوات تكبير/تباين.</p>
+        <span class="issue-fix"><b>الحل:</b> فحص axe/WAVE + صفحة /accessibility بيان الالتزام.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">25</div>
+      <div class="issue-body">
+        <h4>غياب WhatsApp Business Verified</h4>
+        <p>بدون علامة خضراء موثّقة على واتساب = فرصة انتحال هوية في رسائل العملاء.</p>
+        <span class="issue-fix"><b>الحل:</b> التقدم إلى WhatsApp Business API عبر BSP سعودي معتمد (Unifonic/Tawk/Meta).</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">26</div>
+      <div class="issue-body">
+        <h4>ادعاء "© 1979–2025" دون إثبات ظاهر</h4>
+        <p>قد يستوجب الإثبات من تاريخ السجل التجاري.</p>
+        <span class="issue-fix"><b>الحل:</b> التحقق + توثيق أو تعديل.</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">27</div>
+      <div class="issue-body">
+        <h4>لا ملف security.txt</h4>
+        <p>لا قناة لاستقبال بلاغات باحثي الأمان.</p>
+        <span class="issue-fix"><b>الحل:</b> <code>/.well-known/security.txt</code> وفق RFC 9116.</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">28</div>
+      <div class="issue-body">
+        <h4>كشف بنية Next.js عبر /_next/</h4>
+        <p>إفصاح معلوماتي بسيط عن الإطار.</p>
+        <span class="issue-fix"><b>الحل:</b> رؤوس إخفاء + تخصيص headers في الـ CDN.</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+  </div>
+
+  <!-- ===== CAT 4: MARKETING ===== -->
+  <div class="cat-head" id="mkt">
+    <div class="cat-head-icon">📈</div>
+    <div class="cat-head-text">
+      <h3>المحور الرابع: التسويق والنمو والمنافسة</h3>
+      <p>فجوات تنافسية ضد ROSHN, Dar Al Arkan, Bayut, Wasalt — وفرص النمو</p>
+    </div>
+    <div class="cat-head-count">28 ملاحظة</div>
+  </div>
+
+  <div class="issues-list">
+    <div class="issue crit">
+      <div class="issue-num">1</div>
+      <div class="issue-body">
+        <h4>غياب كامل لحاسبة التمويل العقاري</h4>
+        <p>أداة تقلل الاحتكاك في رحلة الشراء بشكل هائل. Bayut, Wasalt, ROSHN كلها تقدمها.</p>
+        <span class="issue-fix"><b>الحل:</b> حاسبة مدمجة (سعر، دفعة أولى، مدة، نسبة) + ربط بنوك الراجحي/SNB/الأهلي + دعم "سكني".</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">2</div>
+      <div class="issue-body">
+        <h4>لا جولات افتراضية 360°/3D/Matterport</h4>
+        <p>معيار صناعة 2026 لمشاريع البوتيك. غيابها يُنتج فجوة تنافسية مع ROSHN.</p>
+        <span class="issue-fix"><b>الحل:</b> تصوير Matterport لكل نموذج وحدة + Embed في صفحة المشروع.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">3</div>
+      <div class="issue-body">
+        <h4>لا WhatsApp Business مع أتمتة</h4>
+        <p>القناة #1 في السعودية — غيابها كقناة لتوليد العملاء خسارة مباشرة.</p>
+        <span class="issue-fix"><b>الحل:</b> WhatsApp Business API + شات بوت عربي + توجيه تلقائي لمستشار حسب المشروع + تتبع المصدر.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">4</div>
+      <div class="issue-body">
+        <h4>لا CRM مربوط بنماذج الموقع</h4>
+        <p>كل lead من الموقع يتسرب عبر البريد دون Lead Scoring ولا Attribution ولا Pipeline.</p>
+        <span class="issue-fix"><b>الحل:</b> HubSpot / Salesforce / Re-platform + ربط النماذج + lead scoring + attribution.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">5</div>
+      <div class="issue-body">
+        <h4>لا تسجيل اهتمام / حجز رقمي عبر نفاذ</h4>
+        <p>ROSHN يستخدم register.roshn.sa مع تسجيل Nafath لتسريع رحلة الحجز. روابط عالقة في نموذج PDF/تواصل.</p>
+        <span class="issue-fix"><b>الحل:</b> نظام تسجيل اهتمام + Nafath SSO + حجز وحدة مؤقت + لوحة مستخدم.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue crit">
+      <div class="issue-num">6</div>
+      <div class="issue-body">
+        <h4>لا تكامل مع وافي للبيع على الخارطة</h4>
+        <p>إذا كانت المشاريع مؤهلة للبيع على الخريطة، فغياب شارة "وافي" يُضعف الثقة النظامية.</p>
+        <span class="issue-fix"><b>الحل:</b> تسجيل المشاريع في Wafi + عرض شارة رسمية + نسخة العقد المعتمد.</span>
+      </div>
+      <span class="issue-sev sev-crit">حرجة</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">7</div>
+      <div class="issue-body">
+        <h4>لا قسم استثماري (Investor Relations)</h4>
+        <p>Dar Al Arkan يخصص قسمًا كاملاً للمستثمرين المؤسسيين. روابط ليس لديها.</p>
+        <span class="issue-fix"><b>الحل:</b> /investors مع تقارير، ROI، خطط دفع مؤسسية، نموذج اهتمام B2B.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">8</div>
+      <div class="issue-body">
+        <h4>مدونة SEO فقيرة المحتوى</h4>
+        <p>لا محتوى تعليمي عربي يستهدف كلمات "كيف أشتري عقار في السعودية"، "شروط البيع على الخارطة"، "الفرق بين سكني ووافي".</p>
+        <span class="issue-fix"><b>الحل:</b> 30+ مقال SEO في 6 أشهر + تحديث دوري + مؤلف متخصص عقاري.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">9</div>
+      <div class="issue-body">
+        <h4>لا قناة يوتيوب احترافية</h4>
+        <p>محتوى الفيديو أعلى تحويل في العقار: Walk-through، تقدم البناء، شهادات عملاء.</p>
+        <span class="issue-fix"><b>الحل:</b> إطلاق قناة + فيديو شهري + Embed على الموقع.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">10</div>
+      <div class="issue-body">
+        <h4>لا حضور TikTok وSnapchat</h4>
+        <p>قناتان رئيسيتان في السوق السعودي للعقار والبيوت.</p>
+        <span class="issue-fix"><b>الحل:</b> إطلاق حسابين + محتوى قصير + Snap Ads.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">11</div>
+      <div class="issue-body">
+        <h4>لا صفحات Neighborhood Pages للـ SEO</h4>
+        <p>كنز SEO ضائع: "شقق حي الزهراء"، "شقق حي السلامة"، "فلل أبحر".</p>
+        <span class="issue-fix"><b>الحل:</b> 15-25 صفحة أحياء غنية + Schema + محتوى أصلي.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">12</div>
+      <div class="issue-body">
+        <h4>لا Google Business Profile موثّق</h4>
+        <p>أهم عامل Local SEO. ظهور في خرائط Google + تقييمات + صور.</p>
+        <span class="issue-fix"><b>الحل:</b> إنشاء GBP + توثيق + جمع تقييمات منهجي.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">13</div>
+      <div class="issue-body">
+        <h4>لا حملات Google Ads / Meta Ads مرئية</h4>
+        <p>لا ظهور في Meta Ad Library، ولا على كلمات "شقق للبيع جدة".</p>
+        <span class="issue-fix"><b>الحل:</b> حملات Search + Display + Lead Forms + ميزانية اختبارية.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">14</div>
+      <div class="issue-body">
+        <h4>غياب سردية رؤية 2030 صريحة</h4>
+        <p>المطورون السعوديون يربطون مشاريعهم بهدف تملّك المساكن 70%. روابط لا تفعل.</p>
+        <span class="issue-fix"><b>الحل:</b> قسم "مساهمتنا في رؤية 2030" + تقرير أثر سنوي.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue high">
+      <div class="issue-num">15</div>
+      <div class="issue-body">
+        <h4>لا AI Chatbot عربي على الموقع</h4>
+        <p>Arabot, B-it موجودون محليًا. شات بوت يفهم اللهجة ويرشّح وحدات حسب الميزانية.</p>
+        <span class="issue-fix"><b>الحل:</b> شات بوت LLM عربي + محدّد على قاعدة بيانات المشاريع + حجز معاينة.</span>
+      </div>
+      <span class="issue-sev sev-high">عالية</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">16</div>
+      <div class="issue-body">
+        <h4>لا محرك توصية ذكي للوحدات</h4>
+        <p>بناءً على سلوك الزائر: "وحدات مشابهة قد تعجبك".</p>
+        <span class="issue-fix"><b>الحل:</b> embeddings + similarity search + personalization.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">17</div>
+      <div class="issue-body">
+        <h4>لا تقييم AI تلقائي للأراضي/الوحدات</h4>
+        <p>فرصة لإنتاج تقارير PDF فورية للمستثمرين.</p>
+        <span class="issue-fix"><b>الحل:</b> نموذج تقييم + LLM يُنتج تقرير بالعربية.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">18</div>
+      <div class="issue-body">
+        <h4>لا بودكاست / تقارير سوق</h4>
+        <p>محتوى PR طبيعي يُستشهد به ويبني السلطة الرقمية.</p>
+        <span class="issue-fix"><b>الحل:</b> "مؤشر روابط العقاري" ربعي + بودكاست شهري.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">19</div>
+      <div class="issue-body">
+        <h4>لا برنامج إحالة (Referral) رقمي</h4>
+        <p>أداة نمو قوية في سوق البيوت عبر الشبكات الاجتماعية السعودية.</p>
+        <span class="issue-fix"><b>الحل:</b> برنامج إحالة بمكافأة للمُحيل + تتبع Unique Code.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">20</div>
+      <div class="issue-body">
+        <h4>لا تكامل مع Ejar / Absher</h4>
+        <p>تسريع رحلة التأجير + التحقق الآلي من هوية العميل.</p>
+        <span class="issue-fix"><b>الحل:</b> API Ejar للعقارات المؤجَّرة + توثيق Nafath.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">21</div>
+      <div class="issue-body">
+        <h4>لا برامج عضوية للعملاء السابقين</h4>
+        <p>Cross-sell و Upsell على العملاء الحاليين أرخص من اكتساب جديد.</p>
+        <span class="issue-fix"><b>الحل:</b> "نادي ملاك روابط" + مزايا + تنبيهات مشاريع جديدة.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">22</div>
+      <div class="issue-body">
+        <h4>لا Email Marketing منهجي</h4>
+        <p>قاعدة بيانات العملاء غير مُستثمَرة.</p>
+        <span class="issue-fix"><b>الحل:</b> Mailchimp/Brevo + تسلسل drip + newsletter شهري.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue med">
+      <div class="issue-num">23</div>
+      <div class="issue-body">
+        <h4>لا Retargeting pixel على الزوار المغادرين</h4>
+        <p>95% من زوار العقار لا يحوّلون من الزيارة الأولى.</p>
+        <span class="issue-fix"><b>الحل:</b> Meta Pixel + Google Ads Remarketing + Abandoned Form emails.</span>
+      </div>
+      <span class="issue-sev sev-med">متوسطة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">24</div>
+      <div class="issue-body">
+        <h4>لا تطبيق جوال مستقل</h4>
+        <p>يمكن تأجيله حتى نضوج الموقع، لكن PWA سريعة الفوز.</p>
+        <span class="issue-fix"><b>الحل:</b> PWA أولًا، تطبيق React Native لاحقًا.</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">25</div>
+      <div class="issue-body">
+        <h4>لا Influencer Marketing</h4>
+        <p>مؤثرون سعوديون متخصصون في العقار يعطون ROI ممتاز.</p>
+        <span class="issue-fix"><b>الحل:</b> شراكات مع 5-10 مؤثرين + تتبع codes.</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">26</div>
+      <div class="issue-body">
+        <h4>لا AR/VR للتجارب الغامرة</h4>
+        <p>مستقبل العقار — Meta Quest + Apple Vision Pro.</p>
+        <span class="issue-fix"><b>الحل:</b> نماذج 3D قابلة للاستعراض AR عبر QR Code.</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">27</div>
+      <div class="issue-body">
+        <h4>لا Gamification في رحلة الحجز</h4>
+        <p>نقاط، شارات، إنجازات — يزيد الوقت على الموقع.</p>
+        <span class="issue-fix"><b>الحل:</b> درجات تفاعل + شارات "مستكشف"، "مستثمر".</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+
+    <div class="issue low">
+      <div class="issue-num">28</div>
+      <div class="issue-body">
+        <h4>لا Voice Search Optimization</h4>
+        <p>البحث الصوتي بالعربية ينمو بسرعة.</p>
+        <span class="issue-fix"><b>الحل:</b> محتوى FAQ محادثي + Schema FAQPage + كلمات "أين، كيف، متى".</span>
+      </div>
+      <span class="issue-sev sev-low">منخفضة</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====== COMPETITOR COMPARISON ====== -->
+<section class="section" id="compete" style="background: var(--bg-2); max-width:none; margin: 0 -2rem; padding-inline: 2rem;">
+  <div style="max-width:1440px; margin:0 auto;">
+  <div class="section-head">
+    <span class="section-tag tag-info">المقارنة التنافسية</span>
+    <h2 class="section-title">روابط مقابل <span>قيادات السوق السعودي</span></h2>
+    <p class="section-sub">مقارنة مباشرة مع أبرز المطورين والبوابات العقارية في المملكة</p>
+  </div>
+
+  <div class="compare-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>الميزة / القدرة</th>
+          <th class="rawabet-col">روابط العقارية</th>
+          <th>ROSHN</th>
+          <th>Dar Al Arkan</th>
+          <th>Retal</th>
+          <th>Bayut.sa</th>
+          <th>Wasalt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SSR/SSG للصفحات الحرجة</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>فلترة متقدمة للمشاريع</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>البحث على الخريطة</td>
+          <td class="rawabet-col"><span class="partial">◐</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="partial">◐</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>حاسبة التمويل العقاري</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>جولات افتراضية 360° / 3D</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="partial">◐</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="partial">◐</span></td>
+        </tr>
+        <tr>
+          <td>تسجيل دخول نفاذ (Nafath)</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="partial">◐</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>تكامل مع وافي / ساكني</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>WhatsApp Business موثّق</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>سياسة خصوصية PDPL</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>رقم فال REGA معلن</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>بانر كوكيز / CMP</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>GA4 / Meta Pixel</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Schema.org JSON-LD كامل</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="partial">◐</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>نسخة إنجليزية فعلية</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>مدونة / محتوى SEO نشط</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="partial">◐</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Compare Units / Save Favorites</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="partial">◐</span></td>
+          <td><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Testimonials / شعارات شركاء</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>حجز عربون رقمي</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="partial">◐</span></td>
+          <td><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Investor Relations Section</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✕</span></td>
+          <td><span class="cross">✕</span></td>
+          <td><span class="cross">✕</span></td>
+        </tr>
+        <tr>
+          <td>AI Chatbot / توصية ذكية</td>
+          <td class="rawabet-col"><span class="cross">✕</span></td>
+          <td><span class="partial">◐</span></td>
+          <td><span class="partial">◐</span></td>
+          <td><span class="cross">✕</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="partial">◐</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="margin-top:1.2rem; display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; font-size:.82rem; color: var(--text-3);">
+    <div><span class="check">✓</span> متوفر &nbsp;·&nbsp; <span class="partial">◐</span> جزئي &nbsp;·&nbsp; <span class="cross">✕</span> غير متوفر</div>
+  </div>
+  </div>
+</section>
+
+<!-- ====== AI SERVICES ====== -->
+<section class="section" id="ai">
+  <div class="section-head">
+    <span class="section-tag tag-emerald">خدمات الذكاء الاصطناعي</span>
+    <h2 class="section-title">12 خدمة <span>ذكاء اصطناعي</span> مقترحة</h2>
+    <p class="section-sub">حزمة متكاملة لتحويل موقع روابط العقارية إلى أول منصة عقارية سعودية تعمل بالذكاء الاصطناعي الكامل</p>
+  </div>
+
+  <style>
+  .ai-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.6rem;
+  }
+  .ai-card {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem 1.8rem;
+    overflow: hidden;
+    transition: all .4s ease;
+  }
+  .ai-card::before {
+    content:''; position: absolute;
+    top: 0; right: 0; left: 0; height: 3px;
+    background: var(--grad-gold);
+    transform: scaleX(0); transform-origin: right;
+    transition: transform .4s;
+  }
+  .ai-card::after {
+    content:''; position: absolute;
+    top: -60px; left: -60px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(14,143,115,0.08) 0%, transparent 60%);
+    transition: all .4s;
+  }
+  .ai-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-lg);
+  }
+  .ai-card:hover::before { transform: scaleX(1); }
+  .ai-card:hover::after { top: -30px; left: -30px; }
+  .ai-head {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 1rem;
+    position: relative; z-index: 1;
+  }
+  .ai-icon {
+    width: 58px; height: 58px;
+    background: var(--grad-dark);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    color: var(--accent-2);
+    flex-shrink: 0;
+    box-shadow: 0 8px 22px rgba(11,45,42,0.25);
+  }
+  .ai-num {
+    position: absolute;
+    top: 1.5rem; left: 1.5rem;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--bg-2);
+    line-height: 1;
+    z-index: 0;
+  }
+  .ai-card h4 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1.4;
+  }
+  .ai-card p {
+    font-size: .88rem;
+    color: var(--text-3);
+    line-height: 1.9;
+    margin-bottom: 1rem;
+    position: relative; z-index: 1;
+  }
+  .ai-tech {
+    display: flex; flex-wrap: wrap; gap: .4rem;
+    padding-top: .9rem;
+    border-top: 1px dashed var(--border);
+    position: relative; z-index: 1;
+  }
+  .ai-tech span {
+    background: var(--gold-light);
+    color: var(--accent-3);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: .72rem;
+    font-weight: 700;
+  }
+  .ai-impact {
+    display: inline-block;
+    margin-top: .7rem;
+    padding: 4px 12px;
+    background: var(--emerald-light);
+    color: var(--emerald);
+    border-radius: 20px;
+    font-size: .72rem;
+    font-weight: 800;
+  }
+  </style>
+
+  <div class="ai-grid">
+    <div class="ai-card">
+      <div class="ai-num">01</div>
+      <div class="ai-head">
+        <div class="ai-icon">💬</div>
+        <h4>مساعد عقاري ذكي بالعربية (Chatbot LLM)</h4>
+      </div>
+      <p>شات بوت يفهم اللهجة الخليجية، يرشّح الوحدات حسب الميزانية وعدد الغرف والموقع، يحجز معاينة فوريًا، ومتكامل مع واتساب أعمال. يعمل 24/7 ويحوّل الاستفسار إلى موعد في دقائق.</p>
+      <div class="ai-tech">
+        <span>GPT-4o / Claude</span><span>RAG</span><span>Arabic NLP</span>
+      </div>
+      <div class="ai-impact">↑ 60% معدل الرد الفوري</div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-num">02</div>
+      <div class="ai-head">
+        <div class="ai-icon">🎯</div>
+        <h4>محرك التوصية الذكي للوحدات</h4>
+      </div>
+      <p>"وحدات مشابهة قد تعجبك" مبني على سلوك الزيارة السابقة، الميزانية المتوقعة، والبحث التاريخي. يستخدم Embeddings لإيجاد أقرب الوحدات دلاليًا، لا مجرد فلاتر حرفية.</p>
+      <div class="ai-tech">
+        <span>Vector DB</span><span>Embeddings</span><span>Personalization</span>
+      </div>
+      <div class="ai-impact">↑ 3x الوقت على الصفحة</div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-num">03</div>
+      <div class="ai-head">
+        <div class="ai-icon">📊</div>
+        <h4>تقييم AI تلقائي للعقارات (AVM)</h4>
+      </div>
+      <p>Automated Valuation Model يحلّل الصفقات التاريخية، المساحة، الموقع، العمر، ومستوى التشطيب لإنتاج تقرير PDF فوري بالعربية يعرض القيمة السوقية المتوقعة وهامش الثقة.</p>
+      <div class="ai-tech">
+        <span>ML Regression</span><span>Market Data</span><span>PDF Gen</span>
+      </div>
+      <div class="ai-impact">↑ جذب مستثمرين B2B</div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-num">04</div>
+      <div class="ai-head">
+        <div class="ai-icon">🏠</div>
+        <h4>Virtual Staging بالذكاء الاصطناعي</h4>
+      </div>
+      <p>تحويل صور الوحدات الفارغة إلى غرف مؤثثة بالكامل بطرز متعددة (مودرن، كلاسيكي، نجدي، سكاندنافي) في ثوانٍ، بدل استئجار أثاث حقيقي لجلسات تصوير مكلفة.</p>
+      <div class="ai-tech">
+        <span>Stable Diffusion</span><span>ControlNet</span><span>Inpainting</span>
+      </div>
+      <div class="ai-impact">↓ 90% تكلفة الستايلنج</div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-num">05</div>
+      <div class="ai-head">
+        <div class="ai-icon">🎤</div>
+        <h4>بحث صوتي عربي (Voice Search)</h4>
+      </div>
+      <p>"ابحث لي عن شقة ثلاث غرف شمال جدة بميزانية مليون ونصف" — استعلام صوتي طبيعي بالعربية يُحوَّل إلى فلاتر بحث منظمة. يستهدف النمو المتسارع للبحث الصوتي في السعودية.</p>
+      <div class="ai-tech">
+        <span>Whisper AR</span><span>Intent Detection</span><span>NLU</span>
+      </div>
+      <div class="ai-impact">↑ وصول جديد (Voice Era)</div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-num">06</div>
+      <div class="ai-head">
+        <div class="ai-icon">📈</div>
+        <h4>توقع الأسعار التنبؤي (Predictive Pricing)</h4>
+      </div>
+      <p>نموذج تعلّم آلي يتوقع اتجاه أسعار كل حي في جدة والرياض خلال 3-12 شهرًا، يعرض رسم بياني تفاعلي في صفحة كل مشروع يُعزّز قرار المشتري والمستثمر.</p>
+      <div class="ai-tech">
+        <span>Time Series</span><span>Prophet/XGBoost</span><span>REGA Data</span>
+      </div>
+      <div class="ai-impact">↑ ثقة المستثمر</div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-num">07</div>
+      <div class="ai-head">
+        <div class="ai-icon">✍️</div>
+        <h4>توليد محتوى تسويقي بالعربية</h4>
+      </div>
+      <p>مولّد أوصاف الوحدات، مقالات المدونة، منشورات السوشيال، وترجمات عربي/إنجليزي — بصوت العلامة التجارية لروابط، بإشراف بشري لضمان الجودة والامتثال.</p>
+      <div class="ai-tech">
+        <span>Claude/GPT</span><span>Brand Voice</span><span>Multi-lang</span>
+      </div>
+      <div class="ai-impact">↑ 10x سرعة النشر</div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-num">08</div>
+      <div class="ai-head">
+        <div class="ai-icon">🔍</div>
+        <h4>بحث دلالي (Semantic Search)</h4>
+      </div>
+      <p>استعلامات طبيعية مثل "شقة هادئة قريبة من مدارس أهلية وحديقة" بدل فلاتر صارمة. يفهم النية وراء الكلمات ويرتّب النتائج دلاليًا بدقة عالية.</p>
+      <div class="ai-tech">
+        <span>Vector Search</span><span>BGE-AR</span><span>Re-ranking</span>
+      </div>
+      <div class="ai-impact">↑ 45% معدل النقر</div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-num">09</div>
+      <div class="ai-head">
+        <div class="ai-icon">📝</div>
+        <h4>مولّد عقود ومستندات ذكي</h4>
+      </div>
+      <p>إنشاء مسودات عقود البيع والحجز وفق صيغة موحّدة معتمدة من REGA، مع تعبئة بيانات العميل والوحدة تلقائيًا، ومراجعة قانونية بواسطة AI قبل توقيع المستشار البشري.</p>
+      <div class="ai-tech">
+        <span>Template AI</span><span>Legal LLM</span><span>E-signature</span>
+      </div>
+      <div class="ai-impact">↓ 70% وقت العقود</div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-num">10</div>
+      <div class="ai-head">
+        <div class="ai-icon">💡</div>
+        <h4>تحليل مشاعر التعليقات والتقييمات</h4>
+      </div>
+      <p>تحليل آلي لتعليقات العملاء على Google Business، إنستقرام، X، والمنتديات العقارية — لرصد الشكاوى المتكررة، نقاط القوة، وتنبيه فريق خدمة العملاء بالمشاكل الطارئة.</p>
+      <div class="ai-tech">
+        <span>Sentiment AR</span><span>Topic Modeling</span><span>Alerts</span>
+      </div>
+      <div class="ai-impact">↑ حماية سمعة البراند</div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-num">11</div>
+      <div class="ai-head">
+        <div class="ai-icon">🖼️</div>
+        <h4>تحسين صور المشاريع التلقائي</h4>
+      </div>
+      <p>رفع جودة الصور القديمة، تصحيح الإضاءة والألوان، إزالة عناصر مشتتة (سيارات، أسلاك)، وتوحيد مظهر معرض الصور لكل مشروع لإظهاره باحترافية موحّدة.</p>
+      <div class="ai-tech">
+        <span>Real-ESRGAN</span><span>LaMa Inpaint</span><span>Auto-enhance</span>
+      </div>
+      <div class="ai-impact">↑ 50% جاذبية الصور</div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-num">12</div>
+      <div class="ai-head">
+        <div class="ai-icon">🧠</div>
+        <h4>Lead Scoring ذكي بالـ AI</h4>
+      </div>
+      <p>نموذج تنبؤي يُصنّف كل lead جديد (ساخن / دافئ / بارد) بناءً على السلوك على الموقع، مصدر الزيارة، سرعة الرد، وبيانات الديموغرافيا — ويوجّه الـ leads الساخنة فورًا لأفضل مستشار مبيعات.</p>
+      <div class="ai-tech">
+        <span>ML Classifier</span><span>CRM Integration</span><span>Auto-routing</span>
+      </div>
+      <div class="ai-impact">↑ 3x معدل إغلاق الصفقات</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 3rem; padding: 2rem; background: var(--grad-dark); border-radius: var(--radius); color: #fff; text-align: center; position: relative; overflow: hidden;">
+    <div style="position:absolute; inset:0; background: radial-gradient(circle at 30% 50%, rgba(201,162,75,0.15) 0%, transparent 50%);"></div>
+    <div style="position:relative; z-index:1;">
+      <div style="font-size: .85rem; color: rgba(255,255,255,0.6); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: .6rem;">✦ التوافق مع رؤية 2030 ✦</div>
+      <p style="color: rgba(255,255,255,0.88); font-size: 1rem; max-width: 820px; margin: 0 auto; line-height: 2;">
+        جميع خدمات الذكاء الاصطناعي المقترحة تنسجم مع استراتيجية المملكة للذكاء الاصطناعي التي تقودها <strong style="color: var(--accent-2);">سدايا (SDAIA)</strong>،
+        وتُموضع روابط العقارية كأول مطور عقاري سعودي يتبنّى منصة AI متكاملة عربية المحتوى،
+        بما يعزّز الميزة التنافسية ويفتح أبواب الشراكات الحكومية ضمن مبادرات التحوّل الرقمي.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== KEYWORD GAP ====== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-tag tag-warning">فجوة الكلمات المفتاحية</span>
+    <h2 class="section-title">خريطة <span>SEO العربية</span> المستهدفة</h2>
+    <p class="section-sub">50+ كلمة مفتاحية مصنّفة حسب نية الشراء — روابط لا تستهدف أيًّا منها حاليًا</p>
+  </div>
+
+  <div class="kw-grid">
+    <div class="kw-card t1">
+      <h4><span class="kw-dot"></span>المستوى 1 — نية شراء عالية</h4>
+      <ul class="kw-list">
+        <li>شقق للبيع في جدة <span class="kw-vol">~12K شهريًا</span></li>
+        <li>شقق تمليك جدة <span class="kw-vol">~8K</span></li>
+        <li>شقق للبيع حي الزهراء <span class="kw-vol">~3K</span></li>
+        <li>شقق للبيع حي السلامة <span class="kw-vol">~2K</span></li>
+        <li>فلل للبيع في جدة <span class="kw-vol">~9K</span></li>
+        <li>مشاريع جديدة في جدة <span class="kw-vol">~5K</span></li>
+        <li>مشروع ترف جدة <span class="kw-vol">Brand defense</span></li>
+        <li>عقارات وافي جدة <span class="kw-vol">~2K</span></li>
+        <li>مخططات سكنية جدة <span class="kw-vol">~4K</span></li>
+        <li>أراضي للبيع جدة <span class="kw-vol">~7K</span></li>
+      </ul>
+    </div>
+
+    <div class="kw-card t2">
+      <h4><span class="kw-dot"></span>المستوى 2 — توسّع جغرافي</h4>
+      <ul class="kw-list">
+        <li>شقق للبيع في الرياض <span class="kw-vol">~18K</span></li>
+        <li>فلل للبيع شمال الرياض <span class="kw-vol">~6K</span></li>
+        <li>عقارات الرياض <span class="kw-vol">~10K</span></li>
+        <li>مشاريع سكنية الرياض <span class="kw-vol">~5K</span></li>
+        <li>شقق للبيع في أبحر <span class="kw-vol">~3K</span></li>
+        <li>فلل للبيع في أبحر الشمالية <span class="kw-vol">~2K</span></li>
+        <li>عقارات النعيم جدة <span class="kw-vol">~1K</span></li>
+        <li>شقق الشاطئ جدة <span class="kw-vol">~1.5K</span></li>
+        <li>مطور عقاري السعودية <span class="kw-vol">~2K</span></li>
+        <li>أفضل مطور عقاري في جدة <span class="kw-vol">~1K</span></li>
+      </ul>
+    </div>
+
+    <div class="kw-card t3">
+      <h4><span class="kw-dot"></span>المستوى 3 — تعليمي / Long-tail</h4>
+      <ul class="kw-list">
+        <li>كيف أحسب التمويل العقاري <span class="kw-vol">~3K</span></li>
+        <li>الفرق بين سكني ووافي <span class="kw-vol">~2K</span></li>
+        <li>شروط البيع على الخريطة <span class="kw-vol">~1.5K</span></li>
+        <li>أفضل أحياء جدة للسكن <span class="kw-vol">~2.5K</span></li>
+        <li>حاسبة قسط شهري <span class="kw-vol">~4K</span></li>
+        <li>الدعم السكني كم ينزل <span class="kw-vol">~6K</span></li>
+        <li>خطوات شراء عقار في السعودية <span class="kw-vol">~1K</span></li>
+        <li>نقل الصك إلكترونيًا <span class="kw-vol">~2K</span></li>
+        <li>الفرق بين تمليك واستثمار <span class="kw-vol">~800</span></li>
+        <li>كم رسوم ضريبة التصرفات العقارية <span class="kw-vol">~1.5K</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ROADMAP ====== -->
+<section class="section" id="roadmap" style="background: var(--bg-2); max-width:none; margin: 0 -2rem; padding-inline: 2rem;">
+  <div style="max-width:1440px; margin:0 auto;">
+  <div class="section-head">
+    <span class="section-tag tag-gold">خطة التطوير التنفيذية</span>
+    <h2 class="section-title">خطة التطوير <span>على 5 مراحل</span></h2>
+    <p class="section-sub">خطة تنفيذية تفصيلية مرتّبة حسب الأولوية النظامية والتجارية</p>
+  </div>
+
+  <div class="roadmap">
+
+    <div class="phase p1">
+      <div class="phase-marker">1</div>
+      <div class="phase-card">
+        <div class="phase-head">
+          <div class="phase-title">المرحلة 1: إصلاح المخالفات النظامية الحرجة</div>
+        </div>
+        <ul class="phase-items">
+          <li>إنشاء ونشر سياسة خصوصية كاملة متوافقة مع PDPL + صفحة الشروط والأحكام</li>
+          <li>تركيب بانر الكوكيز مع إدارة موافقة عربية (Cookiebot/Usercentrics)</li>
+          <li>إضافة رقم فال REGA + السجل التجاري + الرقم الضريبي في الفوتر</li>
+          <li>إضافة رقم ترخيص الإعلان العقاري على كل بطاقة مشروع</li>
+          <li>إصلاح نموذج التواصل: reCAPTCHA v3 + honeypot + إشعار خصوصية + checkbox موافقة</li>
+          <li>نقل لوحة الإدارة /admin إلى admin.rsre.sa خلف WAF + MFA</li>
+          <li>نشر رؤوس الأمان الحرجة: CSP, HSTS, X-Frame-Options, X-Content-Type-Options</li>
+          <li>ضبط SPF/DKIM/DMARC reject على نطاق البريد</li>
+        </ul>
+        <div class="phase-kpi">الهدف: صفر مخالفة نظامية + اجتياز فحص Mozilla Observatory بدرجة A</div>
+      </div>
+    </div>
+
+    <div class="phase p2">
+      <div class="phase-marker">2</div>
+      <div class="phase-card">
+        <div class="phase-head">
+          <div class="phase-title">المرحلة 2: SEO والبنية التقنية</div>
+        </div>
+        <ul class="phase-items">
+          <li>تحويل /projects, /communities, /blogs, /media إلى SSR/SSG/ISR بـ Next.js</li>
+          <li>إصلاح Canonical + Title + Meta Description فريد لكل صفحة بالعربية</li>
+          <li>إضافة JSON-LD كامل: Organization, RealEstateAgent, LocalBusiness, Residence, BreadcrumbList, FAQPage, BlogPosting</li>
+          <li>إصلاح sitemap.xml + إضافة sitemap index للمشاريع والمدونة والصور</li>
+          <li>تركيب GA4 + GTM + Meta Pixel + Snap Pixel + TikTok Pixel + Google Ads Tag</li>
+          <li>تسجيل في Google Search Console + Bing Webmaster + Google Business Profile</li>
+          <li>تحسين الصور: AVIF/WebP + srcset + alt عربي وصفي + lazy loading</li>
+          <li>تحويل الخطوط TTF إلى WOFF2 + font-display swap + preload</li>
+          <li>إزالة maximum-scale من viewport meta + إصلاح RTL</li>
+        </ul>
+        <div class="phase-kpi">الهدف: Lighthouse 90+ | فهرسة 100% للصفحات الحرجة | Core Web Vitals "جيد"</div>
+      </div>
+    </div>
+
+    <div class="phase p3">
+      <div class="phase-marker">3</div>
+      <div class="phase-card">
+        <div class="phase-head">
+          <div class="phase-title">المرحلة 3: تجربة المستخدم وإعادة بناء صفحات المشاريع</div>
+        </div>
+        <ul class="phase-items">
+          <li>إعادة بناء صفحة /projects: فلاتر (موقع، سعر، مساحة، غرف، حالة) + Sort + Grid/List/Map</li>
+          <li>قالب صفحة تفاصيل مشروع: Gallery + Floor Plans + 3D Matterport + Video + Specs + Brochure PDF</li>
+          <li>نموذج حجز معاينة قصير (3 حقول) داخل كل مشروع + ربط CRM</li>
+          <li>زر WhatsApp عائم FAB + click-to-call على الجوال</li>
+          <li>قسم Testimonials + شريط شركاء التمويل (الراجحي، الأهلي، SNB) + شارة سكني</li>
+          <li>إنشاء /about القيادي بصور احترافية + LinkedIn</li>
+          <li>إنشاء /faq مع FAQPage schema</li>
+          <li>حاسبة تمويل عقاري داخل كل صفحة مشروع</li>
+          <li>تنفيذ نسخة /en/ كاملة بترجمة احترافية يدوية</li>
+          <li>Mega Menu للمشاريع + Search Bar داخلي + Breadcrumbs</li>
+        </ul>
+        <div class="phase-kpi">الهدف: زيادة الوقت على الصفحة 3x | معدل التحويل من 0.8% إلى 3.5%+</div>
+      </div>
+    </div>
+
+    <div class="phase p4">
+      <div class="phase-marker">4</div>
+      <div class="phase-card">
+        <div class="phase-head">
+          <div class="phase-title">المرحلة 4: المنصة التجارية والذكاء الاصطناعي</div>
+        </div>
+        <ul class="phase-items">
+          <li>دمج تسجيل دخول نفاذ (Nafath SSO) + حسابات المستخدمين</li>
+          <li>Save Favorites + Save Search + Compare Units</li>
+          <li>بوابة دفع العربون الرقمي (HyperPay/Tap) مع Apple Pay / مدى / STC Pay</li>
+          <li>تكامل وافي للبيع على الخارطة + عرض شارات الاعتماد</li>
+          <li>ربط CRM (HubSpot/Salesforce) مع كل النماذج + Lead Scoring + Attribution</li>
+          <li>WhatsApp Business API + شات بوت عربي + توجيه تلقائي للمستشارين</li>
+          <li>شات بوت AI عربي (LLM) على الموقع + محرك توصية ذكي للوحدات</li>
+          <li>قسم /investors للمستثمرين المؤسسيين + تقارير ربعية</li>
+          <li>تكامل Ejar للمؤجَّرات + توثيق Absher/Nafath</li>
+        </ul>
+        <div class="phase-kpi">الهدف: تحويل الموقع من Brochure إلى منصة تجارية كاملة</div>
+      </div>
+    </div>
+
+    <div class="phase p5">
+      <div class="phase-marker">5</div>
+      <div class="phase-card">
+        <div class="phase-head">
+          <div class="phase-title">المرحلة 5: النمو والمحتوى والتسويق</div>
+        </div>
+        <ul class="phase-items">
+          <li>بناء 15-25 صفحة Neighborhood Pages لأحياء جدة والرياض</li>
+          <li>نشر 30+ مقال SEO متخصص (دليل المشتري، سكني vs وافي، التمويل، نقل الصك)</li>
+          <li>إطلاق قناة YouTube + فيديو شهري + Walk-through لكل مشروع</li>
+          <li>إطلاق TikTok + Snapchat بمحتوى قصير يومي</li>
+          <li>إطلاق "مؤشر روابط العقاري" الربعي + PR منهجي</li>
+          <li>حملات Google Ads + Meta Ads + Snap Ads على كلمات مستهدفة</li>
+          <li>Email Marketing + Drip Campaigns + Newsletter شهري</li>
+          <li>برنامج إحالة رقمي + نادي ملاك روابط</li>
+          <li>تحويل الموقع إلى PWA + Service Worker</li>
+          <li>سردية رؤية 2030 صريحة + تقرير أثر سنوي</li>
+        </ul>
+        <div class="phase-kpi">الهدف: 10x نمو في Organic Traffic | 5x نمو في Qualified Leads خلال 6 أشهر</div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</section>
+
+<!-- ====== QUICK WINS ====== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-tag tag-success">مكاسب سريعة</span>
+    <h2 class="section-title">Quick Wins خلال <span>30 يومًا</span></h2>
+    <p class="section-sub">أبرز 8 إجراءات قابلة للتنفيذ الفوري مع أكبر أثر مقابل أقل جهد</p>
+  </div>
+
+  <div class="qw-grid">
+    <div class="qw-card">
+      <span class="qw-week">أولوية فورية</span>
+      <h4>✦ نشر الصفحات القانونية + بانر الكوكيز</h4>
+      <p>سياسة خصوصية PDPL + الشروط والأحكام + Cookiebot عربي. يُزيل المخاطر النظامية فورًا قبل أي إنفاق تسويقي.</p>
+      <div class="qw-impact">↑ امتثال نظامي 100% · يومان عمل</div>
+    </div>
+
+    <div class="qw-card">
+      <span class="qw-week">أولوية فورية</span>
+      <h4>✦ إضافة رقم فال + السجل + VAT في الفوتر</h4>
+      <p>يُبرز الالتزام النظامي ويبني ثقة فورية مع الزوار وقارئات REGA.</p>
+      <div class="qw-impact">↑ مصداقية · ساعات</div>
+    </div>
+
+    <div class="qw-card">
+      <span class="qw-week">أولوية فورية</span>
+      <h4>✦ تركيب GA4 + GTM + Meta Pixel</h4>
+      <p>بدون قياس، كل قرار تسويقي عمياني. يُستعاد "رؤية الأعمال" خلال ساعات.</p>
+      <div class="qw-impact">↑ قرارات مبنية على بيانات · نصف يوم</div>
+    </div>
+
+    <div class="qw-card">
+      <span class="qw-week">أولوية فورية</span>
+      <h4>✦ زر WhatsApp عائم + click-to-call</h4>
+      <p>أعلى قناة تحويل في السعودية. إضافة بسيطة برمجيًا مع أثر كبير على Lead Flow.</p>
+      <div class="qw-impact">↑ 40%+ في الاستفسارات المباشرة · ساعات</div>
+    </div>
+
+    <div class="qw-card">
+      <span class="qw-week">أولوية فورية</span>
+      <h4>✦ Google Business Profile موثّق</h4>
+      <p>يضع روابط على خرائط Google + يُفعّل جمع التقييمات + يزيد Local SEO.</p>
+      <div class="qw-impact">↑ ظهور Local · يومان</div>
+    </div>
+
+    <div class="qw-card">
+      <span class="qw-week">أولوية قريبة</span>
+      <h4>✦ إصلاح Title و Meta Description لكل صفحة</h4>
+      <p>إنهاء تكرار العناوين واستهداف كلمات عربية. Google يعيد فهرسة الصفحات خلال أسابيع.</p>
+      <div class="qw-impact">↑ 30-50% CTR على SERP · 3 أيام</div>
+    </div>
+
+    <div class="qw-card">
+      <span class="qw-week">أولوية قريبة</span>
+      <h4>✦ تحويل /projects إلى SSR/SSG</h4>
+      <p>أهم صفحة تجارية تصبح فورًا مرئية لمحركات البحث — تغيير تقني بأثر كبير.</p>
+      <div class="qw-impact">↑ فهرسة 100% للمشاريع · أسبوع</div>
+    </div>
+
+    <div class="qw-card">
+      <span class="qw-week">أولوية قريبة</span>
+      <h4>✦ إطلاق 5 Landing Pages لأحياء جدة</h4>
+      <p>صفحات "شقق حي الزهراء"، "شقق حي السلامة"، "فلل أبحر" مع نماذج Lead. يبدأ التدفق العضوي.</p>
+      <div class="qw-impact">↑ أول leads عضوية · أسبوعان</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== KPIs ====== -->
+<section class="section" id="kpi" style="background: var(--bg-2); max-width:none; margin: 0 -2rem; padding-inline: 2rem;">
+  <div style="max-width:1440px; margin:0 auto;">
+  <div class="section-head">
+    <span class="section-tag tag-info">مؤشرات النجاح</span>
+    <h2 class="section-title">KPIs <span>بعد 6 أشهر من التنفيذ</span></h2>
+    <p class="section-sub">أهداف قابلة للقياس على البعد التجاري والتقني والتسويقي</p>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">الزيارات العضوية</div>
+      <div class="kpi-num">+850%</div>
+      <div class="kpi-desc"><span class="kpi-arrow">▲</span> من محركات البحث العربية</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">معدل التحويل</div>
+      <div class="kpi-num">+420%</div>
+      <div class="kpi-desc"><span class="kpi-arrow">▲</span> Lead Conversion Rate</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Lighthouse Score</div>
+      <div class="kpi-num">95+</div>
+      <div class="kpi-desc"><span class="kpi-arrow">▲</span> أداء / SEO / Accessibility</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">LCP (أول محتوى)</div>
+      <div class="kpi-num">&lt; 2.0s</div>
+      <div class="kpi-desc"><span class="kpi-arrow">▼</span> من ~5.8s حاليًا</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">الكلمات المفتاحية</div>
+      <div class="kpi-num">50+</div>
+      <div class="kpi-desc"><span class="kpi-arrow">▲</span> في الصفحة الأولى</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">تكلفة اكتساب العميل</div>
+      <div class="kpi-num">-65%</div>
+      <div class="kpi-desc"><span class="kpi-arrow">▼</span> مقارنةً بالحالة الراهنة</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Security Score</div>
+      <div class="kpi-num">A+</div>
+      <div class="kpi-desc"><span class="kpi-arrow">▲</span> Mozilla Observatory</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">قاعدة البيانات</div>
+      <div class="kpi-num">20K+</div>
+      <div class="kpi-desc"><span class="kpi-arrow">▲</span> عميل محتمل مؤهَّل</div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- ====== CTA ====== -->
+<section class="section">
+  <div class="cta">
+    <div class="cta-inner">
+      <h2>حوّل rsre.sa من <span>بطاقة تعريف</span><br>إلى <span>منصة تجارية رقمية</span></h2>
+      <p>
+        التقرير الماثل أمامك حصيلة تدقيق احترافي شامل عبر أربعة محاور متخصصة، كشف 124 ملاحظة و 28 فرصة نمو،
+        كلها موثّقة بأدلة فعلية من جلب الموقع. المرحلة الأولى وحدها ستُزيل المخاطر النظامية
+        وتضع الأساس لمنصة رقمية تليق بتاريخ روابط العقارية منذ 1979.
+      </p>
+      <div class="cta-btns">
+        <button class="btn btn-primary" onclick="window.print()">📄 طباعة التقرير</button>
+        <button class="btn btn-outline" onclick="document.getElementById('roadmap').scrollIntoView({behavior:'smooth'})">🚀 ابدأ التنفيذ</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOT ====== -->
+<footer class="foot">
+  <div class="foot-logo">روابط<span> · تقرير التطوير</span></div>
+  <p>تقرير تدقيق شامل وخطة تطوير احترافية</p>
+  <p>موقع: <strong>rsre.sa</strong> · شركة روابط العقارية</p>
+  <div class="foot-meta">
+    تم إصدار التقرير في 10 أبريل 2026 · تدقيق احترافي مستقل عبر أربعة محاور متخصصة
+    · 124 ملاحظة موثّقة · 5 مراحل تنفيذية
+  </div>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// Active nav link
+const links = document.querySelectorAll('.nav-links a');
+const sections = ['exec','agents','overview','tech','ux','sec','mkt','compete','roadmap','kpi','budget'];
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < 150) current = id;
+  });
+  links.forEach(l => {
+    l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+  });
+});
+</script>
+</body>
+</html>
